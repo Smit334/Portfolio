@@ -16,6 +16,85 @@
 				justify-content: center;
 				margin-top: 10px;
 			}
+			/* Modal styles */
+			.modal {
+				display: none; /* Hidden by default */
+				position: fixed; /* Stay in place */
+				z-index: 1000; /* Sit on top */
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				overflow: auto; /* Enable scroll if needed */
+				background-color: rgba(255, 255, 255, 0.897); /* Black w/ opacity */
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.modal-content {
+				margin: auto;
+				display: block;
+				max-width: 90%;
+				max-height: 90%;
+				transition: transform 0.25s ease;
+				position: relative;
+				cursor: grab;
+			}
+			.modal-content:active {
+				cursor: grabbing;
+			}
+			.modal-content, .modal-caption {
+				animation-name: zoom;
+				animation-duration: 0.6s;
+			}
+			@keyframes zoom {
+				from {transform: scale(0)}
+				to {transform: scale(1)}
+			}
+			.close {
+				position: absolute;
+				top: 15px;
+				right: 35px;
+				color: #fff;
+				font-size: 40px;
+				font-weight: bold;
+				transition: 0.3s;
+			}
+			.close:hover,
+			.close:focus {
+				color: #bbb;
+				text-decoration: none;
+				cursor: pointer;
+				}
+			.image-gallery {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 30px; /* Adjust the gap between images as needed */
+				margin-top: 20px;
+				max-width: 100%; /* Ensure the gallery does not exceed the width of the text */
+			}
+			.image-gallery img {
+				flex: 1 1 calc(33.333% - 20px); /* Adjust the width of the images */
+				max-width: calc(33.333% - 20px); /* Ensure the images do not exceed the width of the text */
+				height: 400px; /* Set a fixed height for the images */
+				border-radius: 20px; /* Add rounded corners */
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+				object-fit: cover; /* Ensure the images fill the box without stretching */
+				cursor: pointer; /* Change cursor to pointer to indicate clickability */
+			}
+			@media (max-width: 768px) {
+				.image-gallery img {
+					flex: 1 1 calc(50% - 20px); /* Adjust the width of the images for smaller screens */
+					max-width: calc(50% - 20px); /* Ensure the images do not exceed the width of the text */
+				}
+			}
+			@media (max-width: 480px) {
+				.image-gallery img {
+					flex: 1 1 100%; /* Adjust the width of the images for very small screens */
+					max-width: 100%; /* Ensure the images do not exceed the width of the text */
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -25,7 +104,31 @@
 			<section id="main" class="wrapper style1">
 				<div class="inner">
 					<h1>Formula Electric at Berkeley</h1>
-					<p>Designed and developed multiple systems and PCBs, authored firmware, system diagrams, validated and brought up PCBs for integration into various vehicle functions.</p>
+					<p>I have been the Electrical Engineering lead for the 2023 season, and am now the Chief of Electrical Engineering and Computer Science for the 2024-25 season. We have designed 3 Cars (SN1, SN2 and SN3) till date and are 
+						currently working on the 4th car (SN4).</p>
+					<p>As the Chief of Electrical Engineering and Computer Science, I am responsible for the design, development, and integration of all electrical systems in the vehicle. I have designed and developed multiple systems and 
+						PCBs, authored firmware, validated and brought up PCBs for integration into various vehicle functions.</p>
+					<p>Our system Architecture comprises of a 588V Pack, 140s4p made up of energus 1s4p modules. We have been using the LTC6813 and family of chips from ADI for our BMS, however we are switching to the newer ADBMS ASICs 
+						for our current design.</p>
+					<p style="margin-bottom: 0.5rem;">Our RMS Inverter is the Cascadia Motion Rinehart PM100DZ 3 phase Motor Controller and the motor is Motor: Emrax 228 High Voltage (Axial Flux, PMSM, SPM).</p>
+					<p class="major">Everything on our Electrical Architecture except the invertor and motor is custom designed and brought up by our engineers in house.</p>
+					<p class="major">A high level diagram, an informative slide deck of the high level diagram and some documentation the invertor and motor of our vehicle is shown below:</p>
+					<ul class="actions align-center horizontal-buttons">
+						<li><a href="../projects\FEB\High Level EECS Overview.pdf" class="button">SN3 High level Diagram Slide Deck</a></li>
+						<li><a href="https://elemental-hawk-04e.notion.site/SN2-RMS-Inverter-Documentation-5aa13ddd1dea40b8a2d1ffd78fd6838a" class="button">Invertor and Motor Documentation</a></li>
+					</ul>
+					<div class="image-gallery1">
+						<img src="../images\FEB\SN4 Electrical System Diagram.png" alt="High Level Diagram" onclick="openModal(this)" style="width: 100%;">
+					</div>
+					<!-- Modal -->
+					<div id="myModal" class="modal" onclick="closeModal()">
+						<span class="close" onclick="closeModal()">&times;</span>
+						<img class="modal-content" id="modalImage">
+					</div>
+					<br>
+					<br>
+					<br>
+					<p class="major" style="font-size: 1.6em;">Some of my designs include:</p>
 					<div class="items style1 medium onscroll-fade-in">
 						<section class="project-section">
 							<h3><strong>600V-12V FlyBack Convertor</strong></h3>
@@ -38,33 +141,29 @@
 							</ul>
 						</section>
 						<section class="project-section">
-							<h3><strong>Phish-Phighters</strong></h3>
-							<p>Phish-Phighters is a secure file storage and sharing system in Go, offering encrypted file operations, user authentication, and access control for secure sharing and management.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/Smit334/Phish-Phighters.git" class="button">Repo</a></li>
-							</ul>
+							<h3><strong>PCU - Acceleration Pedal Positional Sensor</strong></h3>
+							<p>The PCU (Powertrain control unit) reads acceleration and brake sensors. This data is used to calculate a torque value command that is broadcast over the CAN Network so the Invertor can draw power necessary 
+								for the requested torque. This board is also the base for the BSPD.</p>
 						</section>
 						<section class="project-section">
-							<h3><strong>Enigma</strong></h3>
-							<p>Programmed an encryption and decryption software based on the Enigma Machine.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/Smit334/Enigma.git" class="button">Repo</a></li>
-							</ul>
+							<h3><strong>BSPD - Brake System plausibility Device</strong></h3>
+							<p>The Brake System Plausibility Device (BSPD) ensures safety by cutting power to the drivetrain if the brake and accelerator are engaged simultaneously or there is more than 5KW of power going through the 
+								drivetrain when the brakes are pressed. It detects faults in pedal signals, prevents unintended acceleration.</p>
 						</section>
 						<section class="project-section">
-							<h3><strong>Ataxx</strong></h3>
-							<p>Created the Ataxx game with an AI opponent using game tree algorithms.</p>
-							<ul class="actions">
-								<li><a href="https://github.com/Smit334/Ataxx.git" class="button">Repo</a></li>
-							</ul>
+							<h3><strong>DCU and DASH</strong></h3>
+							<p>The DCU (Data Control Unit) logs everything on the CANBus to a SD card on Board and transmits all messages through an Xbee Wireless tranceiver module for Live telemetry. 
+								I have also included a Super Capacitor UPS to avoid correuption of SD cards. The Dash acts as the I/O for the driver by transmitting relative info from the CANBus to the Screen and driver input onto the CANBus.</p>
 						</section>
-						<section class="project-section">
-							<h3><strong>ML Classifier for Movie Genres</strong></h3>
-							<p>Developed a machine learning classifier to identify movie genres based on words spoken in the movie dialogues.</p>
-							<!-- <ul class="actions">
-								<li><a href="ml-classifier.html" class="button">Learn More</a></li>
-							</ul> -->
-						</section>
+					</div>
+					<p class="major">SN2 (First) and SN3 (Second & Third) Pictured Below:</p>
+					<div class="image-gallery">
+						<img src="../images\FEB\DSC_9065.jpg" alt="SN2" class="pv-style" onclick="openModal(this)">
+						<img src="../images\FEB\20240615_084224.jpg" alt="SN3" class="pv-style" onclick="openModal(this)">
+						<img src="../images\FEB\PXL_20240615_192513872.jpg" alt="SN3" class="pv-style" onclick="openModal(this)">
+					</div>
+					<div style="margin-top: 100px;">
+						<a href="../index.html#projects" class="button">Back to Home</a>
 					</div>
 				</div>
 			</section>
@@ -77,5 +176,101 @@
 		<script src="../assets/js/breakpoints.min.js"></script>
 		<script src="../assets/js/util.js"></script>
 		<script src="../assets/js/main.js"></script>
+		<script>
+			function openModal(element) {
+				document.getElementById("myModal").style.display = "flex";
+				document.getElementById("modalImage").src = element.src;
+			}
+			function closeModal() {
+				document.getElementById("myModal").style.display = "none";
+				resetImage();
+			}
+			function resetImage() {
+				const modalImage = document.getElementById("modalImage");
+				scale = 1;
+				translateX = 0;
+				translateY = 0;
+				modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+			}
+			// Ensure modal is hidden on page load
+			document.addEventListener('DOMContentLoaded', function() {
+				closeModal();
+			});
+
+			// Close modal on escape key press
+			document.addEventListener('keydown', function(event) {
+				if (event.key === 'Escape') {
+					closeModal();
+				}
+			});
+
+			// Zoom and pan functionality
+			let scale = 1;
+			let translateX = 0;
+			let translateY = 0;
+			let isPanning = false;
+			let startX = 0;
+			let startY = 0;
+			const modalImage = document.getElementById("modalImage");
+
+			modalImage.addEventListener('wheel', function(event) {
+				event.preventDefault();
+				const rect = modalImage.getBoundingClientRect();
+				const offsetX = event.clientX - rect.left;
+				const offsetY = event.clientY - rect.top;
+				const delta = event.deltaY < 0 ? 1.1 : 0.9;
+				const newScale = scale * delta;
+
+				const x = offsetX - rect.width / 2;
+				const y = offsetY - rect.height / 2;
+
+				const xOrg = x / scale;
+				const yOrg = y / scale;
+
+				const xNew = xOrg * newScale;
+				const yNew = yOrg * newScale;
+
+				const xDiff = xNew - x;
+				const yDiff = yNew - y;
+
+				translateX -= xDiff;
+				translateY -= yDiff;
+
+				scale = newScale;
+
+				modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+			});
+
+			modalImage.addEventListener('mousedown', function(event) {
+				if (event.button === 2) { // Right click
+					isPanning = true;
+					startX = event.clientX - translateX;
+					startY = event.clientY - translateY;
+					event.preventDefault();
+				}
+			});
+
+			modalImage.addEventListener('mousemove', function(event) {
+				if (isPanning) {
+					translateX = event.clientX - startX;
+					translateY = event.clientY - startY;
+					modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+				}
+			});
+
+			modalImage.addEventListener('mouseup', function(event) {
+				if (event.button === 2) { // Right click
+					isPanning = false;
+				}
+			});
+
+			modalImage.addEventListener('mouseleave', function(event) {
+				isPanning = false;
+			});
+
+			modalImage.addEventListener('contextmenu', function(event) {
+				event.preventDefault(); // Disable context menu on right click
+			});
+		</script>
 	</body>
 </html>
