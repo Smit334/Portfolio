@@ -22,10 +22,16 @@
 				margin-bottom: 10px;
 			}
 			.experience-item img {
-				width: 120px; /* Set the width of the logos */
-				height: 120px; /* Set the height of the logos */
+				width: 150px; /* Set the width of the logos */
+				height: 150px; /* Set the height of the logos */
 				margin: 0 20px; /* Add some space between the logo and the text */
 				object-fit: contain; /* Ensure the logos maintain their aspect ratio */
+			}
+			.experience-item.right img {
+				order: 2; /* Position the logo on the right */
+				}
+			.experience-item.right div {
+				text-align: right; /* Right justify the text */
 			}
 		</style>
 	</head>
@@ -59,7 +65,7 @@
 							<p>Leading the Electrical Engineering and Computer Science division for Formula Electric at Berkeley, responsible for overseeing the design and implementation of cutting-edge systems for our electric racing vehicle.</p>
 						</div>
 					</div>
-					<div class="experience-item">
+					<div class="experience-item right">
 						<img src="images/Logos/tesla.png" alt="Tesla Logo">
 						<div>
 							<h3><strong>Tesla (Electrical & Firmware Engineer)</strong></h3>
@@ -73,7 +79,7 @@
 							<p>Developed stackable cell simulator boards and a test automation framework for next-gen vehicle architecture updates.</p>
 						</div>
 					</div>
-					<div class="experience-item">
+					<div class="experience-item right">
 						<img src="images/Logos/idol.png" alt="Idol Logo">
 						<div>
 							<h3><strong>Idol (Full-Stack Blockchain Developer)</strong></h3>
