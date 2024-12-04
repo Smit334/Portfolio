@@ -6,6 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			/* Add this CSS to center buttons horizontally */
+			.project-section {
+				text-align: center;
+			}
+			.project-section .actions {
+				display: flex;
+				justify-content: center;
+				margin-top: 10px;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -54,45 +65,52 @@
 				<div class="inner">
 					<h2><strong>Projects</strong></h2>
 					<div class="items style1 medium onscroll-fade-in">
-						<section>
-							<h3>Formula Electic at Berkeley</h3>
+						<section class="project-section">
+							<h3><strong>PV-12V 100W Buck Convertor</strong></h3>
+							<p>Designed, simulated and iterated on a PV Panel input to 12V output Buck convertor and wrote a MPPT Algorithm and achieved effieciencies over 97% on all operating points.</p>
+							<ul class="actions">
+								<li><a href="projects/PV.html" class="button">Learn More</a></li>
+							</ul>
+						</section>
+						<section class="project-section">
+							<h3><strong>Formula Electic at Berkeley</strong></h3>
 							<p>Designed and developed multiple systems and PCBs, authored firmware, system diagrams, validated and brought up PCBs for integration into various vehicle functions.</p>
-							<ul class="actions align-center">
+							<ul class="actions">
 								<li><a href="projects/FEB.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
-						<section>
-							<h3>Thermistor Reliability Testing Board</h3>
+						<section class="project-section">
+							<h3><strong>Thermistor Reliability Testing Board</strong></h3>
 							<p>Designed a PCB for thermistor characterization and reliability testing using advanced BMS ASICs during my Tesla internship.</p>
-							<ul class="actions align-center">
+							<ul class="actions">
 								<li><a href="projects/thermistor.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
-						<section>
-							<h3>Cell Simulator</h3>
+						<section class="project-section">
+							<h3><strong>Cell Simulator</strong></h3>
 							<p>Designed modular cell simulator boards with 1.22mV precision to test ECU functionalities during my Rivian internship.</p>
-							<ul class="actions align-center">
+							<ul class="actions">
 								<li><a href="projects/cell-simulator.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
-						<section>
-							<h3>SIXT33N</h3>
+						<section class="project-section">
+							<h3><strong>SIXT33N</strong></h3>
 							<p>Built an RC scale car controlled via voice commands using an Arduino and a custom voice-word classifier model.</p>
-							<ul class="actions align-center">
+							<ul class="actions">
 								<li><a href="projects/voice-car.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
-						<section>
-							<h3>SpeakEasy - AI Language Companion</h3>
+						<section class="project-section">
+							<h3><strong>SpeakEasy - AI Language Companion</strong></h3>
 							<p>Designed an AI-powered language tool designed to help users localize their own voice into other languages. SpeakEasy enables natural-sounding translations and assists with language learning by replicating the user's unique intonation.</p>
-							<ul class="actions align-center">
+							<ul class="actions">
 								<li><a href="https://github.com/Boomaa23/speak-easy" class="button">Learn More</a></li>
 							</ul>
 						</section>
-						<section>
-							<h3>Other Projects</h3>
-							<p>Other Computer Science Projects</p>
-							<ul class="actions align-center">
+						<section class="project-section">
+							<h3><strong>Other Projects</strong></h3>
+							<p>Other Projects Focused more on CS</p>
+							<ul class="actions">
 								<li><a href="projects/other.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
@@ -105,16 +123,16 @@
 				<div class="inner">
 					<h2><strong>Ongoing Projects</strong></h2>
 					<div class="items style1 medium onscroll-fade-in">
-						<section>
-							<h3>Custom 16nm Chip Bring-Up</h3>
+						<section class="project-section">
+							<h3><strong>Custom 16nm Chip Bring-Up</strong></h3>
 							<p>Designing a PCB to boot Linux on a custom 16nm chip developed at UC Berkeley and taped out by Intel. The PCB includes comprehensive peripheral and driver support to enable seamless Linux integration and operation on the chip.</p>
 						</section>
-						<section>
-							<h3>DART</h3>
+						<section class="project-section">
+							<h3><strong>DART</strong></h3>
 							<p>Designing a four-wheel drone with EVTOL capabilities by utilizing an in-wheel toroidal propeller design, eliminating the need for additional propellers. Designed a custom flight controller PCB with a suite of distance sensors to enable intelligent object detection and path planning.</p>
 						</section>
-						<section>
-							<h3>3-Stage Pipelined RISC-V CPU ASIC</h3>
+						<section class="project-section">
+							<h3><strong>3-Stage Pipelined RISC-V CPU ASIC</strong></h3>
 							<p>Developing a 3-stage pipelined RISC-V CPU with a custom cache system using Verilog and the Skywater 130nm process for digital ASIC design.</p>
 						</section>
 					</div>

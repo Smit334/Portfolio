@@ -6,6 +6,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			/* Add this CSS to center text and buttons horizontally */
+			.project-section {
+				text-align: center;
+			}
+			.project-section .actions {
+				display: flex;
+				justify-content: center;
+				margin-top: 10px;
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<!-- Wrapper -->
@@ -13,9 +24,48 @@
 			<!-- Main -->
 			<section id="main" class="wrapper style1">
 				<div class="inner">
-					<h2>Formula Electric at Berkeley</h2>
+					<h1>Formula Electric at Berkeley</h1>
 					<p>Designed and developed multiple systems and PCBs, authored firmware, system diagrams, validated and brought up PCBs for integration into various vehicle functions.</p>
-					<!-- Add more details about the project here -->
+					<div class="items style1 medium onscroll-fade-in">
+						<section class="project-section">
+							<h3><strong>600V-12V FlyBack Convertor</strong></h3>
+							<p>Designed a Isolated 600V to 12V Flyback convertor with UVLO at 60V to power High voltage indicator and supply power to a BMS Motherboard.</p>
+							<ul class="actions">
+								<li><a href="https://elemental-hawk-04e.notion.site/SN2-Flyback-Converter-095e4428098c45faab3466b8fb5d547c?pvs=4" class="button">Notion Documentation</a></li>
+							</ul>
+							<ul class="actions">
+								<li><a href="https://elemental-hawk-04e.notion.site/Design-600V-flyback-converter-b3b28f530cfb4a2cbbb9fb3ce9b4cb16" class="button">Notion - Design Notes</a></li>
+							</ul>
+						</section>
+						<section class="project-section">
+							<h3><strong>Phish-Phighters</strong></h3>
+							<p>Phish-Phighters is a secure file storage and sharing system in Go, offering encrypted file operations, user authentication, and access control for secure sharing and management.</p>
+							<ul class="actions">
+								<li><a href="https://github.com/Smit334/Phish-Phighters.git" class="button">Repo</a></li>
+							</ul>
+						</section>
+						<section class="project-section">
+							<h3><strong>Enigma</strong></h3>
+							<p>Programmed an encryption and decryption software based on the Enigma Machine.</p>
+							<ul class="actions">
+								<li><a href="https://github.com/Smit334/Enigma.git" class="button">Repo</a></li>
+							</ul>
+						</section>
+						<section class="project-section">
+							<h3><strong>Ataxx</strong></h3>
+							<p>Created the Ataxx game with an AI opponent using game tree algorithms.</p>
+							<ul class="actions">
+								<li><a href="https://github.com/Smit334/Ataxx.git" class="button">Repo</a></li>
+							</ul>
+						</section>
+						<section class="project-section">
+							<h3><strong>ML Classifier for Movie Genres</strong></h3>
+							<p>Developed a machine learning classifier to identify movie genres based on words spoken in the movie dialogues.</p>
+							<!-- <ul class="actions">
+								<li><a href="ml-classifier.html" class="button">Learn More</a></li>
+							</ul> -->
+						</section>
+					</div>
 				</div>
 			</section>
 		</div>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PV-12V 100W Buck Convertor</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		<style>
+			/* Add this CSS to align buttons horizontally */
+			.horizontal-buttons {
+				display: flex;
+				justify-content: center;
+				gap: 50px; /* Adjust the gap between buttons as needed */
+			}
+			/* Add this CSS to style the image gallery */
+			.image-gallery {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 20px; /* Adjust the gap between images as needed */
+				margin-top: 20px;
+				max-width: 100%; /* Ensure the gallery does not exceed the width of the text */
+			}
+			.image-gallery img {
+				flex: 1 1 calc(33.333% - 20px); /* Adjust the width of the images */
+				max-width: calc(33.333% - 20px); /* Ensure the images do not exceed the width of the text */
+				height: 300px; /* Set a fixed height for the images */
+				border-radius: 10px; /* Add rounded corners */
+				box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+				object-fit: cover; /* Ensure the images fill the box without stretching */
+			}
+			@media (max-width: 768px) {
+				.image-gallery img {
+					flex: 1 1 calc(50% - 20px); /* Adjust the width of the images for smaller screens */
+					max-width: calc(50% - 20px); /* Ensure the images do not exceed the width of the text */
+				}
+			}
+			@media (max-width: 480px) {
+				.image-gallery img {
+					flex: 1 1 100%; /* Adjust the width of the images for very small screens */
+					max-width: 100%; /* Ensure the images do not exceed the width of the text */
+				}
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Main -->
+			<section id="main" class="wrapper style1">
+				<div class="inner">
+					<h1>PV-12V 100W Buck Convertor Overview</h1>
+						<p>Designed, simulated and iterated on a PV Panel input to 12V output Buck convertor and wrote a MPPT Algorithm and achieved effieciencies over 97% on all operating points.</p>
+						<p>The PV-12V 100W Buck Converter project involves designing a buck converter that steps down the voltage from a photovoltaic (PV) panel to a stable 12V output. The project includes the development of a Maximum Power Point Tracking (MPPT) algorithm to optimize the efficiency of the power conversion process.</p>
+						
+						<h2>Design Manual Highlights</h2>
+						<p>The design manual provides a comprehensive guide to the design process, including:</p>
+						<ul>
+							<li>Component selection and sizing</li>
+							<li>Simulation results and analysis</li>
+							<li>Thermal management considerations</li>
+							<li>PCB layout guidelines</li>
+						</ul>
+						
+						<h2>Schematics Overview</h2>
+						<p>The schematics document details the circuit design, including:</p>
+						<ul>
+							<li>PV panel input section</li>
+							<li>Buck converter topology</li>
+							<li>Control circuitry for MPPT</li>
+							<li>Output filtering and regulation</li>
+						</ul>
+						<ul class="actions align-center horizontal-buttons">
+							<li><a href="../assets/PVBuck/DesignManualPVBUCK-SmitMalde.pdf" class="button">Design Manual</a></li>
+							<li><a href="../assets/PVBuck/Schematics_PV_Buck_Converter_113B.pdf" class="button">Schematics</a></li>
+							<li><a href="../assets/PVBuck/EE 113B PV BUCK CONVERTER.pdf" class="button">Layout Design Deck</a></li>
+						</ul>
+					<!-- Add subheading and images below the buttons -->
+					<h2>Design Images</h2>
+					<div class="image-gallery">
+						<img src="../assets/PVBuck/PXL_20241203_232214486~2.jpg" alt="Image 3">
+						<img src="../assets/PVBuck/PXL_20241203_232319047~2.jpg" alt="Image 4">
+						<img src="../assets/PVBuck/PXL_20241203_232353166~2.jpg" alt="Image 5">
+						<img src="../assets/PVBuck/Screenshot_1.png" alt="Image 1">
+						<img src="../assets/PVBuck/Screenshot_2.png" alt="Image 2">
+					</div>
+					<!-- Add more details about the project here -->
+				</div>
+			</section>
+		</div>
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/jquery.scrollex.min.js"></script>
+		<script src="../assets/js/jquery.scrolly.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+	</body>
+</html>
