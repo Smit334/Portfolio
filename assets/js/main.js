@@ -99,6 +99,20 @@
 		$('.smooth-scroll').scrolly();
 		$('.smooth-scroll-middle').scrolly({ anchor: 'middle' });
 
+	$(document).ready(function() {
+		$('.smooth-scroll').on('click', function(event) {
+			if (this.hash !== "") {
+				event.preventDefault();
+				var hash = this.hash;
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top
+				}, 800, function(){
+					window.location.hash = hash;
+				});
+			}
+		});
+	});
+
 	// Wrapper.
 		$wrapper.children()
 			.scrollex({
