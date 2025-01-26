@@ -34,6 +34,15 @@
 			.experience-item .role {
 				font-size: 1.1em; /* Make the font size of the roles smaller */
 			}
+			.icon {
+				vertical-align: middle; /* Align the icon with the text */
+				margin-left: 15px; /* Add some space between the icon and the icon */
+				margin-right: 15px; /* Add some space between the icon and the next icon */
+				transition: transform 0.3s ease; /* Smooth transition for hover effect */
+			}
+			.icon:hover {
+				transform: scale(1.4); /* Slightly enlarge the icon on hover */
+			}
 		</style>
 	</head>
 	<body class="is-preload">
@@ -47,8 +56,8 @@
 					<h1><strong>Smit Malde</strong></h1>
 					<p class="major">Electrical Engineer and Computer Scientist passionate about creating innovative solutions for a sustainable future.</p>
 					<ul class="actions special">
-						<li><a href="#about" class="button big wide smooth-scroll-middle"><strong>About Me</strong></a></li>
-						<li><a href="#contact" class="button big wide smooth-scroll-middle"><strong>Contact Me</strong></a></li>
+						<li><a href="#about" class="button big wide smooth-scroll-middle">About Me</a></li>
+						<li><a href="#contact" class="button big wide smooth-scroll-middle">Contact Me</a></li>
 					</ul>
 				</div>
 				<div class="image">
@@ -127,14 +136,14 @@
 							<h3><strong>PV-12V 100W Buck Convertor</strong></h3>
 							<p>Designed, simulated and iterated on a PV Panel input to 12V output Buck convertor and wrote a MPPT Algorithm and achieved effieciencies over 97% on all operating points.</p>
 							<ul class="actions">
-								<li><a href="projects/PV.html" class="button"><strong>Learn More</strong></a></li>
+								<li><a href="projects/PV.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
 						<section class="project-section">
 							<h3><strong>Formula Electric at Berkeley</strong></h3>
 							<p>Designed and developed multiple systems and PCBs, authored firmware, system diagrams, validated and brought up PCBs for integration into various vehicle functions.</p>
 							<ul class="actions">
-								<li><a href="projects/FEB.html" class="button"><strong>Learn More</strong></a></li>
+								<li><a href="projects/FEB.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
 						<section class="project-section">
@@ -179,7 +188,7 @@
 							<h3><strong>Other Projects</strong></h3>
 							<p>Other Projects Focused more on CS</p>
 							<ul class="actions">
-								<li><a href="projects/other.html" class="button"><strong>Learn More</strong></a></li>
+								<li><a href="projects/other.html" class="button">Learn More</a></li>
 							</ul>
 						</section>
 					</div>
@@ -230,9 +239,17 @@
 				<div class="inner">
 					<h2><strong>Get in Touch</strong></h2>
 					<p>If you're interested in collaborating or learning more about my work, feel free to reach out.</p>
-					<ul class="actions special">
-						<li><a href="mailto:smit334@berkeley.edu" target="_blank" class="button"><strong>Email Me</strong></a></li>
-						<li><a href="https://www.linkedin.com/in/smit-malde/" target="_blank" class="button"><strong>LinkedIn</strong></a></li>
+					<ul class="icons">
+						<li>
+							<a href="mailto:smit334@berkeley.edu">
+								<img src="images/Gmail-icon.png" alt="Email" class="icon" style="width:67px;height:50px;">
+							</a>
+						</li>
+						<li>
+							<a href="https://www.linkedin.com/in/smit-malde/" target="_blank">
+								<img src="images/linkedin-icon.svg" alt="LinkedIn" class="icon" style="width:65px;height:60px;">
+							</a>
+						</li>
 					</ul>
 					<form id="contact-form" method="post" action="https://formspree.io/f/xgvovnll">
 						<div class="fields">
@@ -256,7 +273,7 @@
 			<!-- Footer -->
 			<footer class="wrapper style1 align-center">
 				<div class="inner">
-					<p>&copy; 2024 Smit Malde</p>
+					<p>&copy; 2025 Smit Malde</p>
 				</div>
 			</footer>
 
