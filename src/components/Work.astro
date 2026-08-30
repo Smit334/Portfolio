@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { featured, cards } from '../data/site.js';
+import { cards } from '../data/site.js';
 
 const pad = (n) => String(n).padStart(2, '0');
 ---
@@ -10,31 +10,26 @@ const pad = (n) => String(n).padStart(2, '0');
     <span class="ln"></span>
   </div>
 
-  <div class="media-grid reveal">
-    {featured.map((f) => (
-      <button class="media" type="button" data-open-overlay={f.id} aria-haspopup="dialog" aria-label={`${f.title} — open case study`}>
-        <span class="imwrap">
-          <Image src={f.image} alt="" widths={[560, 980, 1400]} sizes="(max-width: 640px) 92vw, 46vw" format="webp" quality={78} />
-          <span class="tint" aria-hidden="true"></span>
-        </span>
-        <span class="cap"><span class="cap-t">{f.title}</span><span class="cap-k">{f.kicker}</span></span>
-      </button>
-    ))}
-  </div>
-
   <div class="card-grid">
     {cards.map((c, n) => {
       const inner = (
         <>
           <span class="card-top">
             <span class="idx">{pad(n + 1)}</span>
-            {(c.overlay || c.href) && <span class="cta"><span class="ar">&rarr;</span></span>}
+            {c.thumb ? (
+              <span class="card-thumb">
+                <Image src={c.thumb} alt="" width={128} format="webp" quality={75} />
+              </span>
+            ) : (
+              (c.overlay || c.href) && <span class="cta"><span class="ar">&rarr;</span></span>
+            )}
           </span>
           <span class="ttl">{c.title}</span>
           <span class="desc">{c.desc}</span>
           <span class="tags">
             {c.tags.map((t) => <span>{t}</span>)}
             {c.nda && <span class="nda">Details Under NDA</span>}
+            {c.overlay && <span class="more">View Details &rarr;</span>}
           </span>
         </>
       );

@@ -90,6 +90,24 @@ Everything the build needs is extractable from that file:
 - Build on a **branch** (e.g. `redesign`); `main` keeps serving the live site until Smit
   approves the switch.
 
+## Photo wishlist (REMIND SMIT — he provides photos, we track what's needed)
+
+Smit (Aug 30): "I will provide more photos as i see fit, but you need to remind me for
+what things photos are needed." Current needs, roughly by priority:
+
+1. **SN4 completed car** — FEB overlay gallery + card thumb still show SN2/SN3 only;
+   SN4 was completed in the 2024-25 season and should lead. (Also: a final SN4 system
+   diagram if the repo's copy isn't the latest.)
+2. **DART drone** — card has no imagery.
+3. **Custom 16nm chip bring-up board** — if shareable.
+4. **RISC-V CPU ASIC** — layout render / die plot, if shareable.
+5. **SpeakEasy** — a UI screenshot.
+6. **SIXT33N voice car** — if a photo exists.
+7. Optional: a newer About photo of Smit (hiking photo approved for now).
+
+When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/data/site.js`
+(card `thumb` and/or overlay `gallery`), keep alt text specific. Strike items off this list.
+
 ## Content sources (use real content, not the demo copy)
 
 - Approved site copy: current `index.html` (About narrative, experience entries with dates,

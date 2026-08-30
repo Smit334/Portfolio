@@ -4,6 +4,7 @@
 // June 2025) — flagged for Smit's review before ship.
 
 import portraitPhoto from '../assets/photos/portrait.jpg';
+import aboutPhoto from '../assets/photos/about.jpg';
 import febSn2 from '../assets/photos/feb-sn2.jpg';
 import febSn3a from '../assets/photos/feb-sn3-a.jpg';
 import febSn3b from '../assets/photos/feb-sn3-b.jpg';
@@ -18,10 +19,10 @@ export const hero = {
   over: 'Portfolio — Twenty Twenty-Six',
   name: 'Smit Malde',
   tag: 'Electrical Design Engineer · Tesla Battery Electronics',
-  // Smit's original approved tagline, restored; shine on "sustainable future"
+  // Smit's original approved tagline, verbatim; shine on "sustainable future"
   ledeBefore: 'Passionate about creating innovative solutions for a ',
   ledeShine: 'sustainable future',
-  ledeAfter: ' — applying AI across the hardware workflow, from first schematic to validated build.',
+  ledeAfter: '.',
   portrait: portraitPhoto,
   portraitAlt: 'Smit Malde sitting in the Formula Electric at Berkeley race car',
   metaLeft: "UC Berkeley — EECS '25",
@@ -31,11 +32,13 @@ export const hero = {
 // Rewritten for readability from the approved copy — same facts, tighter voice.
 // PENDING SMIT'S SIGN-OFF.
 export const about = {
+  photo: aboutPhoto,
+  photoAlt: 'Smit Malde on a mountain hike',
   paragraphs: [
     "I'm Smit — an Electrical Design Engineer on Tesla's Battery Electronics team, where I design and validate battery management system boards and high-voltage controllers. I carry hardware the whole way: schematic capture, layout, bring-up, and validation on the bench.",
     "I'm equally passionate about what AI can do for hardware engineering. It runs through my design, debugging, and validation workflows — including AI-driven test automation that accelerates bench validation.",
     "Before Tesla, I studied Electrical Engineering and Computer Sciences at UC Berkeley (Class of 2025) and served as Chief of Electrical Engineering and Computer Science for Formula Electric at Berkeley — overseeing the low-voltage and high-voltage electronics, firmware, software, and vehicle integration of our electric race cars, and leading a team of talented engineers. Along the way I interned at Tesla and Rivian, designing BMS boards, cell simulators, and test automation systems.",
-    "My goal is to help build the sustainable, efficient energy systems the future runs on. If that's your world too — or you just want to talk hardware and AI — I'd love to connect.",
+    "My goal is to help build the sustainable, efficient energy systems the future runs on.",
   ],
 };
 
@@ -81,27 +84,11 @@ export const education = {
   school: 'University of California, Berkeley',
   degree: 'B.S. in Electrical Engineering and Computer Sciences',
   gradDate: 'May 2025',
-  skills: ['PCB Design', 'Altium', 'C', 'Python', 'Java', 'Solidity', 'Git', 'NumPy', 'SQL', 'Photoshop', 'Adobe XD'],
 };
 
-// Featured tiles open overlay panels; cards may have an overlay, an external link, or neither.
-export const featured = [
-  {
-    id: 'feb',
-    title: 'Formula Electric at Berkeley',
-    kicker: '588V Electric Race Car',
-    image: febSn2,
-    imageAlt: 'Formula Electric at Berkeley race car on track',
-  },
-  {
-    id: 'pv',
-    title: 'PV–12V 100W Buck Converter',
-    kicker: '97% Efficiency',
-    image: pvBoardA,
-    imageAlt: 'PV buck converter PCB',
-  },
-];
-
+// Uniform project cards; cards may have an overlay, an external link, or
+// neither, and a small photo thumb when real imagery exists (full galleries
+// live in the overlay panels).
 export const cards = [
   {
     title: 'Custom 16nm Chip Bring-Up',
@@ -117,6 +104,20 @@ export const cards = [
     title: '3-Stage Pipelined RISC-V CPU ASIC',
     desc: 'Developed a 3-stage pipelined RISC-V CPU with a custom cache system using Verilog and the Skywater 130nm process for digital ASIC design.',
     tags: ['RISC-V', 'Verilog', 'Skywater 130nm'],
+  },
+  {
+    title: 'PV–12V 100W Buck Converter',
+    desc: 'Designed, simulated and iterated on a PV panel input to 12V output buck converter and wrote an MPPT algorithm, achieving efficiencies over 97% on all operating points.',
+    tags: ['Power Electronics', 'MPPT', '97% Efficiency'],
+    overlay: 'pv',
+    thumb: pvBoardA,
+  },
+  {
+    title: 'Formula Electric at Berkeley',
+    desc: 'Designed and developed multiple systems and PCBs, authored firmware and system diagrams, validated and brought up PCBs for integration into various vehicle functions.',
+    tags: ['588V Systems', 'PCB Design', 'Firmware'],
+    overlay: 'feb',
+    thumb: febSn2,
   },
   {
     title: '24-Channel BMS',
@@ -158,11 +159,11 @@ export const cards = [
 export const overlays = {
   feb: {
     title: 'Formula Electric at Berkeley',
-    kicker: 'Chief of Electrical Engineering & Computer Science · 2022 — 2025',
+    kicker: 'Chief of Electrical Engineering & Computer Science · SN3 & SN4',
     intro: [
-      'I was the Electrical Engineering lead for the 2023 season, and the Chief of Electrical Engineering and Computer Science for the 2024-25 season. We designed 3 cars (SN1, SN2 and SN3) during my time, with the 4th car (SN4) in development.',
-      'As the Chief of Electrical Engineering and Computer Science, I was responsible for the design, development, and integration of all electrical systems in the vehicle. I designed and developed multiple systems and PCBs, authored firmware, validated and brought up PCBs for integration into various vehicle functions.',
-      'Our system architecture comprises a 588V pack, 140s4p made up of Energus 1s4p modules, using the LTC6813 family of chips from ADI for the BMS, transitioning to the newer ADBMS ASICs. The inverter is the Cascadia Motion Rinehart PM100DZ 3-phase motor controller driving an Emrax 228 High Voltage motor (Axial Flux, PMSM, SPM). Everything on the electrical architecture except the inverter and motor is custom designed and brought up in house.',
+      'As the Chief of Electrical Engineering and Computer Science for the SN3 and SN4 seasons, I was responsible for the design, development, and integration of all electrical systems in the vehicle — leading the team through the completion of SN4 in the 2024-25 season.',
+      'I designed and developed multiple systems and PCBs, authored firmware, and validated and brought up boards for integration into vehicle functions across both cars.',
+      'Our system architecture comprises a 588V pack, 140s4p, built from Energus 1s4p modules. The BMS is built on the LTC6813 family of chips from ADI, with the newer ADBMS ASICs adopted for SN4. The inverter is the Cascadia Motion Rinehart PM100DZ 3-phase motor controller driving an Emrax 228 High Voltage motor (Axial Flux, PMSM, SPM). Everything on the electrical architecture except the inverter and motor is custom designed and brought up in house.',
     ],
     designs: [
       {

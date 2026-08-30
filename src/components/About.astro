@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { about } from '../data/site.js';
 ---
 <section class="sec" id="about">
@@ -6,7 +7,24 @@ import { about } from '../data/site.js';
     <h2>About</h2>
     <span class="ln"></span>
   </div>
-  <div class="about-copy reveal">
-    {about.paragraphs.map((p) => <p>{p}</p>)}
+  <div class="about-grid">
+    <div class="about-copy reveal">
+      {about.paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+    <div class="about-photo reveal">
+      <span class="media">
+        <span class="imwrap">
+          <Image
+            src={about.photo}
+            alt={about.photoAlt}
+            widths={[420, 700, 1000]}
+            sizes="(max-width: 820px) 86vw, 32vw"
+            format="webp"
+            quality={80}
+          />
+          <span class="tint" aria-hidden="true"></span>
+        </span>
+      </span>
+    </div>
   </div>
 </section>
