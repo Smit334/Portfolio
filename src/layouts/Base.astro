@@ -21,12 +21,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:url" content={canonical} />
   <meta name="theme-color" content="#08080d" />
   <script is:inline>
-    // pre-paint: motion is ON by default for everyone; only an explicit
-    // stored opt-out ('off') reduces it. Applied before first paint.
+    // pre-paint: every visit OPENS with motion on, everywhere. The
+    // "Reduce Motion" toggle opts out for the current session only.
     (function () {
       var cls = 'force-motion';
       try {
-        if (localStorage.getItem('silk-motion') === 'off') cls = 'reduce-motion';
+        localStorage.removeItem('silk-motion'); // legacy persistent key
+        if (sessionStorage.getItem('silk-motion') === 'off') cls = 'reduce-motion';
       } catch (e) {}
       document.documentElement.classList.add(cls);
     })();
@@ -59,14 +60,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     import { startLightbox } from '../scripts/lightbox.js';
     import { startJetski } from '../scripts/jetski.js';
 
-    // Motion is ON by default everywhere, regardless of OS/browser.
-    // The always-visible toggle lets any visitor opt out (persisted
-    // per browser via localStorage).
+    // Motion is ON at the start of every visit, regardless of OS/browser.
+    // The always-visible toggle opts out for the current session only.
     let stored = null;
-    try { stored = localStorage.getItem('silk-motion'); } catch (e) {}
+    try { stored = sessionStorage.getItem('silk-motion'); } catch (e) {}
     const reducedMotion = stored === 'off';
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (reducedMotion) console.info('[silk] motion reduced by stored visitor choice — use the Motion toggle to re-enable.');
+    if (reducedMotion) console.info('[silk] motion reduced for this session — use the Motion toggle to re-enable.');
     if (!fine) console.info('[silk] no fine pointer detected — jetski and hover motion disabled.');
 
     const tog = document.getElementById('motionToggle');
@@ -74,7 +74,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       tog.hidden = false;
       tog.textContent = reducedMotion ? 'Enable Motion' : 'Reduce Motion';
       tog.addEventListener('click', () => {
-        try { localStorage.setItem('silk-motion', reducedMotion ? 'on' : 'off'); } catch (e) {}
+        try { sessionStorage.setItem('silk-motion', reducedMotion ? 'on' : 'off'); } catch (e) {}
         location.reload();
       });
     }
