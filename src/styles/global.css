@@ -15,16 +15,13 @@
   --a2:110,170,255;
   --aL:169,240,207; /* lightest theme tone — nav text rides on it */
   --ke:180,42,45;   /* shuka crimson — the one color outside the Journey; fixed */
-  /* Maasai bead band — authentic beadwork colors (red, orange, green,
-     blue, yellow) as bands with thin white bead-lines between them,
-     like a beaded bracelet. Lives on the first quarter of each section
-     divider, fading into the plain translucent rule. */
+  /* Kenyan flag band — black, red, green with thin white dividers
+     (the flag's fimbriations), beadwork rhythm. Lives on the first
+     quarter of each section divider, fading into the plain rule. */
   --bead:repeating-linear-gradient(90deg,
-    rgba(193,39,45,.9) 0 14px,        rgba(237,236,243,.85) 14px 16px,
-    rgba(224,122,38,.9) 16px 30px,    rgba(237,236,243,.85) 30px 32px,
-    rgba(30,125,60,.9) 32px 46px,     rgba(237,236,243,.85) 46px 48px,
-    rgba(10,10,12,.95) 48px 62px,     rgba(237,236,243,.85) 62px 64px,
-    rgba(232,182,42,.9) 64px 78px,    rgba(237,236,243,.85) 78px 80px);
+    rgba(10,10,12,.95) 0 14px,        rgba(237,236,243,.85) 14px 16px,
+    rgba(193,39,45,.9) 16px 30px,     rgba(237,236,243,.85) 30px 32px,
+    rgba(30,125,60,.9) 32px 46px,     rgba(237,236,243,.85) 46px 48px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
