@@ -20,6 +20,17 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonical} />
   <meta name="theme-color" content="#08080d" />
+  <script is:inline>
+    // pre-paint: honor a stored motion preference so the reduced-motion
+    // CSS gate can be bypassed without a flash (persisted per browser)
+    (function () {
+      try {
+        var m = localStorage.getItem('silk-motion');
+        if (m === 'on' || location.search.indexOf('motion=force') > -1)
+          document.documentElement.classList.add('force-motion');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -39,6 +50,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
 
   <slot />
 
+  <button id="motionToggle" class="motion-toggle" type="button" hidden></button>
+
   <script>
     import { startAtmosphere } from '../scripts/atmosphere.js';
     import { startMotion } from '../scripts/motion.js';
@@ -46,12 +59,27 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     import { startLightbox } from '../scripts/lightbox.js';
     import { startJetski } from '../scripts/jetski.js';
 
-    // ?motion=force overrides the OS reduced-motion setting (testing hook)
-    const forceMotion = location.search.includes('motion=force');
-    const reducedMotion = !forceMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Motion preference: stored choice > ?motion=force > OS reduced-motion.
+    // Visitors with OS reduced-motion get a calm site plus a persistent
+    // "Enable Motion" toggle; everyone else gets full motion by default.
+    let stored = null;
+    try { stored = localStorage.getItem('silk-motion'); } catch (e) {}
+    const osRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const forceMotion = location.search.includes('motion=force') || stored === 'on';
+    const reducedMotion = stored === 'off' ? true : (!forceMotion && osRM);
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (reducedMotion) console.info('[silk] OS reduced-motion is ON — animations (and the jetski) are disabled. Append ?motion=force to override, or enable Windows Settings > Accessibility > Visual effects > Animation effects.');
+    if (reducedMotion) console.info('[silk] motion is reduced (OS setting or stored choice) — use the Motion toggle, ?motion=force, or Windows Settings > Accessibility > Visual effects > Animation effects.');
     if (!fine) console.info('[silk] no fine pointer detected — jetski and hover motion disabled.');
+
+    const tog = document.getElementById('motionToggle');
+    if (tog && (osRM || stored)) {
+      tog.hidden = false;
+      tog.textContent = reducedMotion ? 'Enable Motion' : 'Reduce Motion';
+      tog.addEventListener('click', () => {
+        try { localStorage.setItem('silk-motion', reducedMotion ? 'on' : 'off'); } catch (e) {}
+        location.reload();
+      });
+    }
 
     startAtmosphere({ reducedMotion });
     startMotion({ reducedMotion, fine });
