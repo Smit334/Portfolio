@@ -50,6 +50,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     const forceMotion = location.search.includes('motion=force');
     const reducedMotion = !forceMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (reducedMotion) console.info('[silk] OS reduced-motion is ON — animations (and the jetski) are disabled. Append ?motion=force to override, or enable Windows Settings > Accessibility > Visual effects > Animation effects.');
+    if (!fine) console.info('[silk] no fine pointer detected — jetski and hover motion disabled.');
 
     startAtmosphere({ reducedMotion });
     startMotion({ reducedMotion, fine });
