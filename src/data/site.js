@@ -26,7 +26,7 @@ export const hero = {
   portrait: portraitPhoto,
   portraitAlt: 'Smit Malde sitting in the Formula Electric at Berkeley race car',
   metaLeft: "UC Berkeley — EECS '25",
-  metaRight: 'Palo Alto, California',
+  metaRight: 'California',
 };
 
 // Rewritten for readability from the approved copy — same facts, tighter voice.
@@ -269,5 +269,5 @@ export const contact = {
   linkedin: 'https://www.linkedin.com/in/smit-malde/',
   formspree: 'https://formspree.io/f/xgvovnll',
   resume: '/Smit-Malde-Resume.pdf',
-  copyright: '© 2026 Smit Malde — Palo Alto, CA',
+  copyright: '© 2026 Smit Malde — California',
 };
