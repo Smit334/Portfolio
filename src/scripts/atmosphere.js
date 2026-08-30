@@ -2,16 +2,21 @@
 // 'lighter' over near-black. Journey mode: scroll blends Glacier → Nordlys,
 // driving both the blob colors and the --a1/--a2 accent vars.
 
-const GLACIER = {
-  blobs: [[36, 86, 190], [28, 140, 185], [120, 150, 190], [52, 58, 150]],
-  a1: '120,170,255',
-  a2: '140,225,255',
-};
+// Journey runs Nordlys (top) → Glacier (bottom).
+// a1/a2 = UI accents; aL = lightest theme tone (nav text rides on it).
 const NORDLYS = {
   blobs: [[14, 140, 104], [18, 112, 146], [58, 76, 188], [10, 84, 66]],
   a1: '110,230,180',
   a2: '110,170,255',
+  aL: '169,240,207',
 };
+const GLACIER = {
+  blobs: [[36, 86, 190], [28, 140, 185], [120, 150, 190], [52, 58, 150]],
+  a1: '120,170,255',
+  a2: '140,225,255',
+  aL: '188,215,255',
+};
+const FROM = NORDLYS, TO = GLACIER;
 
 // per blob: [cx, cy, ampX, ampY, wX, wY, phase, alpha, radius]
 const GEO = [
@@ -65,17 +70,18 @@ export function startAtmosphere({ reducedMotion }) {
     return h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0;
   }
 
-  let cur = GLACIER.blobs.map((c) => c.slice());
-  let tgt = GLACIER.blobs.map((c) => c.slice());
+  let cur = FROM.blobs.map((c) => c.slice());
+  let tgt = FROM.blobs.map((c) => c.slice());
   let lastJF = -1;
 
   function applyJourney() {
     const f = journeyFrac();
-    tgt = GLACIER.blobs.map((c, j) => mix(c, NORDLYS.blobs[j], f));
+    tgt = FROM.blobs.map((c, j) => mix(c, TO.blobs[j], f));
     if (Math.abs(f - lastJF) > .02) {
       lastJF = f;
-      root.style.setProperty('--a1', mixStr(GLACIER.a1, NORDLYS.a1, f));
-      root.style.setProperty('--a2', mixStr(GLACIER.a2, NORDLYS.a2, f));
+      root.style.setProperty('--a1', mixStr(FROM.a1, TO.a1, f));
+      root.style.setProperty('--a2', mixStr(FROM.a2, TO.a2, f));
+      root.style.setProperty('--aL', mixStr(FROM.aL, TO.aL, f));
     }
   }
 
@@ -112,9 +118,10 @@ export function startAtmosphere({ reducedMotion }) {
     // static composed frame; scroll still shifts the palette (cheap, discrete)
     const journeyRM = () => {
       const f = journeyFrac();
-      cur = GLACIER.blobs.map((c, j) => mix(c, NORDLYS.blobs[j], f));
-      root.style.setProperty('--a1', mixStr(GLACIER.a1, NORDLYS.a1, f));
-      root.style.setProperty('--a2', mixStr(GLACIER.a2, NORDLYS.a2, f));
+      cur = FROM.blobs.map((c, j) => mix(c, TO.blobs[j], f));
+      root.style.setProperty('--a1', mixStr(FROM.a1, TO.a1, f));
+      root.style.setProperty('--a2', mixStr(FROM.a2, TO.a2, f));
+      root.style.setProperty('--aL', mixStr(FROM.aL, TO.aL, f));
       frame(47);
     };
     journeyRM();

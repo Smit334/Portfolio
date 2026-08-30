@@ -11,8 +11,9 @@
   --dim:rgba(237,236,243,.55);
   --hair:rgba(237,236,243,.13);
   --ez:cubic-bezier(.22,1,.36,1);
-  --a1:120,170,255; /* Glacier at load; Journey engine drives these */
-  --a2:140,225,255;
+  --a1:110,230,180; /* Nordlys at load; Journey engine drives these */
+  --a2:110,170,255;
+  --aL:169,240,207; /* lightest theme tone — nav text rides on it */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -58,13 +59,12 @@ img{max-width:100%;display:block}
 }
 @keyframes down{from{opacity:0;transform:translateY(-10px)}}
 .brand{
-  color:var(--ink);text-decoration:none;
-  font-size:.78rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:rgb(var(--aL));text-decoration:none;
+  font-size:.85rem;font-weight:400;letter-spacing:.24em;text-transform:uppercase;
 }
-.b-min{display:none}
 .nav nav{display:flex;gap:clamp(1.1rem,2.6vw,2.6rem)}
 .nav nav a{
-  position:relative;color:var(--dim);text-decoration:none;
+  position:relative;color:rgba(var(--aL),.88);text-decoration:none;
   font-size:.78rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;
   transition:color .45s var(--ez),text-shadow .45s var(--ez);
 }
@@ -522,7 +522,6 @@ body.ov-lock{overflow:hidden}
 
 /* ---- responsive ---- */
 @media (max-width:640px){
-  .b-full{display:none}.b-min{display:inline}
   .nav nav{gap:.95rem}
   .nav nav a{font-size:.62rem;letter-spacing:.1em}
   .tag p{white-space:normal;line-height:2;letter-spacing:.2em}
