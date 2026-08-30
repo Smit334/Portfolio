@@ -132,3 +132,4 @@ Everything the build needs is extractable from that file:
 | Aug 26 | Original Silk colors rejected → cool family explored → **Glacier + Nordlys** liked |
 | Aug 26 | **Journey mode chosen** (scroll blends Glacier→Nordlys); image treatment approved |
 | Aug 26 | Architecture approved: one-page scrollytelling, overlays, Astro + GSAP + Lenis |
+| Aug 30 | Build v1 on `redesign`; Smit's first review: hero must show his face immediately (race-car portrait, not the hiking photo), original "sustainable future" tagline restored verbatim, About needed a readable rewrite (pending sign-off), Work section made one consistent 2-col rhythm. Adversarial review fixed: Lenis ate wheel events in overlays (data-lenis-prevent), reveal/hover transition conflict, history pollution on overlay close, inert + contrast + alt-text a11y passes |
