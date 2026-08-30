@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { experience, education } from '../data/site.js';
 ---
 <section class="sec" id="experience">
@@ -9,9 +10,16 @@ import { experience, education } from '../data/site.js';
   <div class="xp">
     {experience.map((e) => (
       <article class="xp-row">
-        <div>
-          <h3 class="xp-role">{e.role}</h3>
-          <p class="xp-co">{e.company}</p>
+        <div class="xp-head">
+          {e.logo && (
+            <span class="xp-logo">
+              <Image src={e.logo} alt={`${e.company} logo`} width={80} format="webp" quality={85} />
+            </span>
+          )}
+          <div>
+            <h3 class="xp-role">{e.role}</h3>
+            <p class="xp-co">{e.company}</p>
+          </div>
         </div>
         <p class="xp-desc">{e.description}</p>
         <p class="xp-dates">{e.dates}</p>

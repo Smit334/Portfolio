@@ -51,7 +51,9 @@ export function startMotion({ reducedMotion, fine }) {
         opacity: 1, y: 0,
         duration: 1.15, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 86%', once: true },
-        onComplete: () => gsap.set(el, { clearProps: 'opacity,transform' }),
+        // clear translate/rotate/scale too: GSAP force-sets them inline
+        // to 'none', which would permanently block the jetski wake bob
+        onComplete: () => gsap.set(el, { clearProps: 'opacity,transform,translate,rotate,scale' }),
       }
     );
   });

@@ -6,6 +6,10 @@
 import portraitPhoto from '../assets/photos/portrait.jpg';
 import aboutPhoto from '../assets/photos/about.jpg';
 import nairobiPhoto from '../assets/photos/nairobi.jpg';
+import logoTesla from '../assets/logos/tesla.png';
+import logoFeb from '../assets/logos/formula-electric.png';
+import logoRivian from '../assets/logos/rivian.png';
+import logoIdol from '../assets/logos/idol.png';
 import febSn2 from '../assets/photos/feb-sn2.jpg';
 import febSn3a from '../assets/photos/feb-sn3-a.jpg';
 import febSn3b from '../assets/photos/feb-sn3-b.jpg';
@@ -49,6 +53,7 @@ export const about = {
 export const experience = [
   {
     company: 'Tesla',
+    logo: logoTesla,
     role: 'Electrical Design Engineer — Battery Electronics',
     dates: 'August 2025 — Present',
     description:
@@ -56,6 +61,7 @@ export const experience = [
   },
   {
     company: 'Formula Electric at Berkeley',
+    logo: logoFeb,
     role: 'Chief of Electrical Engineering and Computer Science',
     dates: 'September 2022 — June 2025',
     description:
@@ -63,6 +69,7 @@ export const experience = [
   },
   {
     company: 'Tesla',
+    logo: logoTesla,
     role: 'Electrical & Firmware Engineer Intern',
     dates: 'January 2024 — August 2024',
     description:
@@ -70,6 +77,7 @@ export const experience = [
   },
   {
     company: 'Rivian',
+    logo: logoRivian,
     role: 'Electrical Engineer Intern — Hardware',
     dates: 'May 2023 — August 2023',
     description:
@@ -77,6 +85,7 @@ export const experience = [
   },
   {
     company: 'Idol',
+    logo: logoIdol,
     role: 'Full Stack Blockchain Developer',
     dates: 'May 2022 — December 2022',
     description:

@@ -238,6 +238,19 @@ img{max-width:100%;display:block}
 }
 .xp-row:hover{background:rgba(255,255,255,.018)}
 .xp-row:hover::before{transform:scaleY(1)}
+.xp-head{display:flex;gap:1rem;align-items:flex-start}
+.xp-logo{
+  flex:none;width:42px;height:42px;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--hair);border-radius:10px;
+  background:rgba(255,255,255,.03);padding:7px;
+}
+.xp-logo img{
+  width:100%;height:100%;object-fit:contain;
+  filter:grayscale(1) brightness(1.25);opacity:.72;
+  transition:filter .5s,opacity .5s;
+}
+.xp-row:hover .xp-logo img{filter:none;opacity:1}
 .xp-role{font-size:clamp(1.02rem,1.6vw,1.22rem);font-weight:300;letter-spacing:.01em}
 .xp-co{
   margin-top:.45rem;font-size:.64rem;font-weight:500;
@@ -585,6 +598,12 @@ body.ov-lock{overflow:hidden}
 }
 .foot-sw .dash{letter-spacing:0;color:rgba(237,236,243,.35)}
 @media (max-width:640px){.foot-sw .sw{font-size:1.6em}}
+
+/* ---- jetski cursor — the craft IS the cursor; bob rides the
+        independent `translate` channel so it never fights transforms ---- */
+html.jetski, html.jetski *{cursor:none!important}
+html.jetski input, html.jetski textarea, html.jetski select{cursor:text!important}
+.card, .edu, .hero-photo .media, .about-photo .media, .vignette{translate:0px var(--by,0px)}
 
 /* ---- lightbox — full-size image viewer (wheel zoom, drag pan, pinch) ---- */
 .lb-root{

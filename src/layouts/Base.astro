@@ -44,14 +44,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     import { startMotion } from '../scripts/motion.js';
     import { startOverlays } from '../scripts/overlay.js';
     import { startLightbox } from '../scripts/lightbox.js';
+    import { startJetski } from '../scripts/jetski.js';
 
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // ?motion=force overrides the OS reduced-motion setting (testing hook)
+    const forceMotion = location.search.includes('motion=force');
+    const reducedMotion = !forceMotion && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     startAtmosphere({ reducedMotion });
     startMotion({ reducedMotion, fine });
     startOverlays();
     startLightbox();
+    startJetski({ reducedMotion, fine });
   </script>
 </body>
 </html>
