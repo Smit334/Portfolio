@@ -13,7 +13,13 @@ for (const ch of hero.name.toUpperCase()) {
 <section class="hero" id="top">
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="mask over-m"><p class="over">{hero.over}</p></div>
+      <div class="mask over-m">
+        <p class="over">
+          <span class="sw" lang="sw">{hero.overSw}</span>
+          <span class="over-dot" aria-hidden="true">·</span>
+          {hero.over}
+        </p>
+      </div>
       <h1 class="name" aria-label={hero.name}>
         <span aria-hidden="true">
           {glyphs.map((g) =>

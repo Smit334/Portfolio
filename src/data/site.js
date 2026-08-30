@@ -5,6 +5,7 @@
 
 import portraitPhoto from '../assets/photos/portrait.jpg';
 import aboutPhoto from '../assets/photos/about.jpg';
+import nairobiPhoto from '../assets/photos/nairobi.jpg';
 import febSn2 from '../assets/photos/feb-sn2.jpg';
 import febSn3a from '../assets/photos/feb-sn3-a.jpg';
 import febSn3b from '../assets/photos/feb-sn3-b.jpg';
@@ -16,6 +17,7 @@ import pvSimA from '../assets/photos/pv-sim-a.png';
 import pvSimB from '../assets/photos/pv-sim-b.png';
 
 export const hero = {
+  overSw: 'Karibu', // Swahili: welcome — serif-italic accent before the overline
   over: 'Portfolio — Twenty Twenty-Six',
   name: 'Smit Malde',
   tag: 'Electrical Design Engineer · Tesla Battery Electronics',
@@ -34,6 +36,11 @@ export const hero = {
 export const about = {
   photo: aboutPhoto,
   photoAlt: 'Smit Malde on a mountain hike',
+  // Roots vignette — Nairobi dusk, letterboxed under the copy
+  rootsPhoto: nairobiPhoto,
+  rootsAlt: 'Nairobi skyline at dusk, a giraffe silhouetted in the foreground',
+  rootsCap: 'home',
+  rootsKicker: 'Nairobi, Kenya — 1°17′ S',
   paragraphs: [
     "I'm Smit — an Electrical Design Engineer on Tesla's Battery Electronics team, where I design and validate battery management system boards and high-voltage controllers. I carry hardware the whole way: schematic capture, layout, bring-up, and validation on the bench.",
     "I'm equally passionate about what AI can do for hardware engineering. It runs through my design, debugging, and validation workflows — including AI-driven test automation that accelerates bench validation.",
@@ -270,4 +277,6 @@ export const contact = {
   formspree: 'https://formspree.io/f/xgvovnll',
   resume: '/Smit-Malde-Resume.pdf',
   copyright: '© 2026 Smit Malde — California',
+  farewellSw: 'Asante', // Swahili: thank you — footer farewell lockup
+  farewellEn: 'Thank you',
 };

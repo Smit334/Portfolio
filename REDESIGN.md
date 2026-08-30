@@ -104,6 +104,9 @@ what things photos are needed." Current needs, roughly by priority:
 5. **SpeakEasy** — a UI screenshot.
 6. **SIXT33N voice car** — if a photo exists.
 7. Optional: a newer About photo of Smit (hiking photo approved for now).
+8. **Hi-res Nairobi skyline/giraffe photo** — the repo copy (`images/unnamed.jpg`) is only
+   512×512; it powers the About "roots" vignette and limits how large it can go. The
+   original export would also unlock the shelved "closing dusk" footer band concept.
 
 When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/data/site.js`
 (card `thumb` and/or overlay `gallery`), keep alt text specific. Strike items off this list.
@@ -150,4 +153,6 @@ When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/
 | Aug 26 | Original Silk colors rejected → cool family explored → **Glacier + Nordlys** liked |
 | Aug 26 | **Journey mode chosen** (scroll blends Glacier→Nordlys); image treatment approved |
 | Aug 26 | Architecture approved: one-page scrollytelling, overlays, Astro + GSAP + Lenis |
+| Aug 30 | **Kenyan accents** (Smit grew up in Nairobi): a restrained 5-piece family, one per register — *Karibu* serif-italic in the hero overline (rides --aL); Nairobi-dusk 21:9 "roots" vignette in About (cap: *home* / "Nairobi, Kenya — 1°17′ S"); ushanga bead-strand inlay on the footer hairline (live accents + one muted `--ke` shuka-red bead, the site's only warm pixel); *Asante — Thank you* footer lockup; ::selection in shuka crimson. Rule: never multiply these — one accent per register or it becomes costume. Shelved concepts (in wf_94e0eb11 output): kanga pindo band on overlay kickers, Rift-contour lines under card cursor glow, shuka check on edu card, closing-dusk footer band (needs hi-res photo) |
+| Aug 30 | Journey inverted to **Nordlys → Glacier**; nav brand "SM"; banner text rides new --aL var. Location shown as just "California". Work section: uniform cards + small photo thumbs (his call), photos vibrant at rest, About photo full-column-height |
 | Aug 30 | Build v1 on `redesign`; Smit's first review: hero must show his face immediately (race-car portrait, not the hiking photo), original "sustainable future" tagline restored verbatim, About needed a readable rewrite (pending sign-off), Work section made one consistent 2-col rhythm. Adversarial review fixed: Lenis ate wheel events in overlays (data-lenis-prevent), reveal/hover transition conflict, history pollution on overlay close, inert + contrast + alt-text a11y passes |

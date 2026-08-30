@@ -10,6 +10,16 @@ import { about } from '../data/site.js';
   <div class="about-grid">
     <div class="about-copy reveal">
       {about.paragraphs.map((p) => <p>{p}</p>)}
+      <figure class="media vignette">
+        <span class="imwrap">
+          <Image src={about.rootsPhoto} alt={about.rootsAlt} widths={[420, 512]} sizes="(max-width: 820px) 86vw, 38vw" format="webp" quality={80} />
+          <span class="tint" aria-hidden="true"></span>
+        </span>
+        <figcaption class="cap">
+          <span class="cap-t sw" lang="en">{about.rootsCap}</span>
+          <span class="cap-k">{about.rootsKicker}</span>
+        </figcaption>
+      </figure>
     </div>
     <div class="about-photo reveal">
       <span class="media">

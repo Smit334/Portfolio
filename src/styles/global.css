@@ -14,6 +14,7 @@
   --a1:110,230,180; /* Nordlys at load; Journey engine drives these */
   --a2:110,170,255;
   --aL:169,240,207; /* lightest theme tone — nav text rides on it */
+  --ke:180,42,45;   /* shuka crimson — the one color outside the Journey; fixed */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -24,7 +25,7 @@ body{
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
-::selection{background:rgba(var(--a1),.32);color:#fff}
+::selection{background:rgba(var(--ke),.32);color:#fff}
 a:focus-visible,button:focus-visible{outline:1px solid rgba(var(--a1),.7);outline-offset:4px;border-radius:2px}
 img{max-width:100%;display:block}
 
@@ -530,6 +531,67 @@ body.ov-lock{overflow:hidden}
 @media (max-width:400px){
   .m-r{display:none}
 }
+
+/* ============================================================
+   Kenyan accents — one per register, whisper-level.
+   Karibu (hero) · roots vignette (About) · ushanga strand +
+   Asante (footer) · shuka ::selection (token above).
+   ============================================================ */
+
+/* Karibu — Swahili serif accent inside the hero overline */
+.over .sw{
+  font-family:'Instrument Serif',Georgia,'Times New Roman',serif;
+  font-style:italic;text-transform:none;
+  font-size:1.45em;line-height:1;
+  letter-spacing:.03em;
+  color:rgba(var(--aL),.92);
+  padding-right:.1em;
+}
+.over .over-dot{color:var(--dim);padding:0 .55em 0 .3em;letter-spacing:0}
+
+/* roots vignette — Nairobi dusk letterbox under the About copy */
+.vignette{display:block;margin-top:clamp(2rem,4.5vh,2.8rem);max-width:560px;cursor:default}
+.vignette .imwrap{aspect-ratio:21/9}
+.vignette img{object-position:50% 62%;filter:saturate(.82) contrast(1.02) brightness(.88)}
+.vignette:hover img{filter:saturate(.96) contrast(1.02) brightness(.96);transform:scale(1.03)}
+.vignette .cap{padding:.9rem 1.1rem}
+.vignette .cap-t{
+  font-family:'Instrument Serif',Georgia,'Times New Roman',serif;font-style:italic;
+  font-size:1.05rem;font-weight:400;color:rgba(237,236,243,.92);letter-spacing:.02em;
+}
+@media (max-width:820px){.vignette{max-width:480px}}
+
+/* ushanga — bead strand inlaid in the footer rule, dissolving into the hairline.
+   Two beads ride the live Journey accents; one muted shuka-red bead is the
+   only warm pixel on the site. */
+.foot-line{position:relative}
+.foot-line::before{
+  content:"";position:absolute;top:-1px;left:0;height:1px;width:128px;
+  background:repeating-linear-gradient(90deg,
+    rgba(var(--a1),.75) 0 3px,      transparent 3px 8px,
+    rgba(237,236,243,.65) 8px 11px, transparent 11px 16px,
+    rgba(var(--ke),.55) 16px 19px,  transparent 19px 24px,
+    rgba(var(--a2),.75) 24px 27px,  transparent 27px 32px);
+  -webkit-mask-image:linear-gradient(90deg,#000 70%,transparent);
+  mask-image:linear-gradient(90deg,#000 70%,transparent);
+  pointer-events:none;
+}
+
+/* Asante — footer farewell lockup, wearing Glacier blue by page bottom */
+.foot-sw{
+  display:flex;align-items:baseline;gap:.8em;
+  font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--dim);
+}
+.foot-sw .sw{
+  font-family:'Instrument Serif',Georgia,'Times New Roman',serif;
+  font-style:italic;text-transform:none;
+  font-size:1.9em;line-height:1;
+  letter-spacing:.02em;
+  color:rgba(var(--aL),.75);
+}
+.foot-sw .dash{letter-spacing:0;color:rgba(237,236,243,.35)}
+@media (max-width:640px){.foot-sw .sw{font-size:1.6em}}
 
 /* ---- reduced motion: composed static state ---- */
 @media (prefers-reduced-motion:reduce){
