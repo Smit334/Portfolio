@@ -187,8 +187,9 @@ export const overlays = {
         text: 'The DCU (Data Control Unit) logs everything on the CAN bus to an on-board SD card and transmits all messages through an XBee wireless transceiver module for live telemetry, with a supercapacitor UPS to avoid corruption of SD cards. The Dash acts as the I/O for the driver — relaying information from the CAN bus to the screen, and driver input onto the CAN bus.',
       },
     ],
+    galleryCols: 3,
     gallery: [
-      { image: febArchitecture, alt: 'SN4 electrical system high-level diagram', cap: 'SN4 System Architecture', wide: true },
+      { image: febArchitecture, alt: 'SN4 electrical system high-level diagram', cap: 'SN4 System Architecture', wide: true, natural: true },
       { image: febSn2, alt: 'The SN2 race car on track', cap: 'SN2' },
       { image: febSn3a, alt: 'The SN3 race car at the June 2024 competition', cap: 'SN3' },
       { image: febSn3b, alt: 'A closer view of the SN3 race car', cap: 'SN3' },
@@ -219,11 +220,11 @@ export const overlays = {
       },
     ],
     gallery: [
-      { image: pvBoardA, alt: 'The assembled PV buck converter PCB' },
+      { image: pvBoardA, alt: 'The assembled PV buck converter PCB', wide: true },
       { image: pvBoardB, alt: 'Top view of the PV buck converter board' },
       { image: pvBoardC, alt: 'Detail of the PV buck converter power stage' },
-      { image: pvSimA, alt: 'PV buck converter design screenshot, 1 of 2', wide: true, maxW: 771 },
-      { image: pvSimB, alt: 'PV buck converter design screenshot, 2 of 2', wide: true, maxW: 838 },
+      { image: pvSimA, alt: 'PV buck converter design screenshot, 1 of 2', fit: true },
+      { image: pvSimB, alt: 'PV buck converter design screenshot, 2 of 2', fit: true },
     ],
     links: [
       { label: 'Design Manual', href: '/projects/PVBuck/DesignManualPVBUCK-SmitMalde.pdf' },

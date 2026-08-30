@@ -28,17 +28,17 @@ const entries = Object.entries(overlays);
         </div>
       )}
       {ov.gallery.length > 0 && (
-        <div class="ov-gallery">
+        <div class={`ov-gallery${ov.galleryCols === 3 ? ' cols3' : ''}`}>
           {ov.gallery.map((g) => (
             <button
-              class={`media${g.wide ? ' wide' : ''}`}
+              class={`media${g.wide ? ' wide' : ''}${g.fit ? ' fit' : ''}${g.natural ? ' natural' : ''}`}
               type="button"
               data-lightbox={g.image.src}
               data-lightbox-alt={g.alt}
               aria-label={`View full size — ${g.alt}`}
             >
               <span class="imwrap">
-                <Image src={g.image} alt={g.alt} width={Math.min(g.maxW ?? Infinity, g.wide ? 1400 : 820, g.image.width)} format="webp" quality={78} />
+                <Image src={g.image} alt={g.alt} width={Math.min(g.wide ? 1400 : 820, g.image.width)} format="webp" quality={78} />
                 <span class="tint" aria-hidden="true"></span>
               </span>
               {g.cap && <span class="cap"><span class="cap-t">{g.cap}</span></span>}

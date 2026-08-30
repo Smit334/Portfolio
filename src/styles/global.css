@@ -15,13 +15,16 @@
   --a2:110,170,255;
   --aL:169,240,207; /* lightest theme tone — nav text rides on it */
   --ke:180,42,45;   /* shuka crimson — the one color outside the Journey; fixed */
-  /* Maasai bead strand — every divider line wears it; the accent beads
-     ride the live Journey palette, the red bead is fixed shuka */
+  /* Maasai bead band — authentic beadwork colors (red, orange, green,
+     blue, yellow) as bands with thin white bead-lines between them,
+     like a beaded bracelet. Lives on the first quarter of each section
+     divider, fading into the plain translucent rule. */
   --bead:repeating-linear-gradient(90deg,
-    rgba(var(--a1),.55) 0 4px,        transparent 4px 10px,
-    rgba(237,236,243,.45) 10px 14px,  transparent 14px 20px,
-    rgba(var(--ke),.5) 20px 24px,     transparent 24px 30px,
-    rgba(var(--a2),.55) 30px 34px,    transparent 34px 40px);
+    rgba(193,39,45,.9) 0 14px,        rgba(237,236,243,.85) 14px 16px,
+    rgba(224,122,38,.9) 16px 30px,    rgba(237,236,243,.85) 30px 32px,
+    rgba(30,125,60,.9) 32px 46px,     rgba(237,236,243,.85) 46px 48px,
+    rgba(29,78,158,.9) 48px 62px,     rgba(237,236,243,.85) 62px 64px,
+    rgba(232,182,42,.9) 64px 78px,    rgba(237,236,243,.85) 78px 80px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -118,8 +121,14 @@ img{max-width:100%;display:block}
   width:100%;
 }
 .rule{
-  flex:1;height:2px;background:var(--bead);
+  flex:1;height:4px;background:rgba(237,236,243,.09);
+  position:relative;overflow:hidden;
   transform:scaleX(0);animation:ruleIn 1.4s 1.1s var(--ez) forwards;
+}
+.rule::before{
+  content:"";position:absolute;inset:0;background:var(--bead);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
+  mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
 }
 .rule.rl{transform-origin:100% 50%}
 .rule.rr{transform-origin:0 50%}
@@ -187,7 +196,15 @@ img{max-width:100%;display:block}
   font-size:.68rem;font-weight:500;letter-spacing:.36em;text-transform:uppercase;
   color:var(--dim);white-space:nowrap;
 }
-.sec-h .ln{flex:1;height:2px;background:var(--bead)}
+.sec-h .ln{
+  flex:1;height:4px;background:rgba(237,236,243,.09);
+  position:relative;overflow:hidden;
+}
+.sec-h .ln::before{
+  content:"";position:absolute;inset:0;background:var(--bead);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
+  mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
+}
 
 /* ---- about ---- */
 .about-grid{
@@ -215,15 +232,14 @@ img{max-width:100%;display:block}
 }
 
 /* ---- experience ---- */
-.xp{position:relative}
-.xp::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--bead)}
+.xp{border-top:1px solid var(--hair)}
 .xp-row{
   display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1.85fr) auto;
   gap:clamp(1rem,3vw,3rem);align-items:start;
   padding:clamp(1.5rem,3.6vh,2.2rem) clamp(.4rem,1vw,.9rem);
+  border-bottom:1px solid var(--hair);
   position:relative;transition:background .6s;
 }
-.xp-row::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--bead)}
 .xp-row::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:1px;
   background:linear-gradient(180deg,rgba(var(--a1),.85),rgba(var(--a2),.35));
@@ -426,10 +442,8 @@ img{max-width:100%;display:block}
   font-size:clamp(.93rem,1.25vw,1.02rem);
 }
 .ov-panel .intro p+p{margin-top:1.2rem}
-.ov-designs{margin-top:clamp(1.8rem,4.4vh,2.8rem);position:relative}
-.ov-designs::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--bead)}
-.ov-design{padding:clamp(1.2rem,3vh,1.7rem) 0;position:relative}
-.ov-design::after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--bead)}
+.ov-designs{margin-top:clamp(1.8rem,4.4vh,2.8rem);border-top:1px solid var(--hair)}
+.ov-design{padding:clamp(1.2rem,3vh,1.7rem) 0;border-bottom:1px solid var(--hair)}
 .ov-design h3{font-size:clamp(1rem,1.5vw,1.18rem);font-weight:300;margin-bottom:.55rem}
 .ov-design p{
   color:var(--mut);font-weight:300;line-height:1.78;
@@ -445,11 +459,16 @@ img{max-width:100%;display:block}
   display:grid;grid-template-columns:1fr 1fr;gap:clamp(.9rem,2vw,1.4rem);
   margin-top:clamp(1.8rem,4.4vh,2.8rem);
 }
+.ov-gallery.cols3{grid-template-columns:repeat(3,1fr)}
 .ov-gallery .media{cursor:zoom-in}
 .ov-gallery .wide{grid-column:1/-1}
-.ov-gallery .wide .imwrap{aspect-ratio:auto}
-.ov-gallery .wide img{height:auto;width:100%}
-@media (max-width:560px){.ov-gallery{grid-template-columns:1fr}}
+.ov-gallery .wide .imwrap{aspect-ratio:21/9}
+.ov-gallery .natural .imwrap{aspect-ratio:auto}
+.ov-gallery .natural img{height:auto;width:100%}
+.ov-gallery .fit img{object-fit:contain;padding:.6rem}
+.ov-gallery .fit .imwrap{background:rgba(255,255,255,.02)}
+.ov-gallery .fit .tint{display:none}
+@media (max-width:560px){.ov-gallery,.ov-gallery.cols3{grid-template-columns:1fr}}
 .ov-links{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:clamp(1.8rem,4.4vh,2.6rem)}
 .ov-links a{
   display:inline-block;padding:.85em 1.8em;
@@ -522,7 +541,13 @@ body.ov-lock{overflow:hidden}
   padding-top:clamp(1.6rem,4vh,2.2rem);
   display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:baseline;
 }
-.foot-line::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--bead)}
+.foot-line::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:rgba(237,236,243,.09)}
+.foot-line::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--bead);
+  -webkit-mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
+  mask-image:linear-gradient(90deg,#000 0 18%,transparent 32%);
+  pointer-events:none;
+}
 .copy{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:400}
 
 /* ---- scroll reveal ----
