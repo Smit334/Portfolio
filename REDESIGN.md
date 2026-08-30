@@ -6,13 +6,16 @@
 
 ## Build status (branch `redesign`)
 
-Phases 1–2 of the build plan are DONE (Aug 30): Astro 5 + GSAP/ScrollTrigger + Lenis
-scaffold with all scenes built from real approved content, Journey atmosphere ported,
-project overlays (feb / pv / other) with `#/work/<id>` deep links, image pipeline via
-astro:assets (webp), old PDF URLs preserved under `public/projects/`, Pages deploy
-workflow written (inactive until the repo's Pages source is switched to GitHub Actions).
-Production build passes. Adversarial review pass run; awaiting Smit's visual approval.
-Nothing pushed to any remote yet.
+Phases 1–3 substantially DONE (Aug 30): Astro 5 + GSAP/ScrollTrigger + Lenis one-pager,
+real approved content, Journey atmosphere (inverted: Nordlys top → Glacier bottom),
+project overlays with `#/work/<id>` deep links + full-res lightbox (wheel zoom/pan/pinch),
+Kenyan accents (flag-band section dividers, Nairobi roots vignette, Asante footer, shuka
+::selection), jetski cursor with wake physics (mouse-only), motion ON for every visit
+with session-only "Reduce Motion" toggle (bottom right), experience org logos, mobile
+verified at 375px (no h-scroll, jetski off on touch). Multiple Smit review rounds applied.
+**Pushed to `origin/redesign` (Aug 30, Smit's go).** Live site on `main` untouched.
+Remaining before launch: Smit's photo drops (see wishlist), final approval → merge +
+switch Pages source to GitHub Actions.
 
 **Windows gotcha:** `C:\Users\smitm\Documents\GitHub` is a junction to
 `C:\Users\smitm\GitHub` (the real path). Run npm/vite/astro against the REAL path or
