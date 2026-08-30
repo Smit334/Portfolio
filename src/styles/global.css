@@ -15,13 +15,20 @@
   --a2:110,170,255;
   --aL:169,240,207; /* lightest theme tone — nav text rides on it */
   --ke:180,42,45;   /* shuka crimson — the one color outside the Journey; fixed */
-  /* Kenyan flag band — black, red, green with thin white dividers
-     (the flag's fimbriations), beadwork rhythm. Lives on the first
-     quarter of each section divider, fading into the plain rule. */
+  /* Kenyan flag band — black, red, green cycling through different
+     shades and tones each pass, separated by white dividers (the
+     flag's fimbriations), beadwork rhythm. Lives on the first quarter
+     of each section divider, fading into the plain rule. */
   --bead:repeating-linear-gradient(90deg,
-    rgba(10,10,12,.95) 0 14px,        rgba(237,236,243,.85) 14px 16px,
-    rgba(193,39,45,.9) 16px 30px,     rgba(237,236,243,.85) 30px 32px,
-    rgba(30,125,60,.9) 32px 46px,     rgba(237,236,243,.85) 46px 48px);
+    rgba(10,10,12,.95) 0 14px,        rgba(237,236,243,.85) 14px 17px,
+    rgba(193,39,45,.9) 17px 31px,     rgba(237,236,243,.85) 31px 34px,
+    rgba(30,125,60,.9) 34px 48px,     rgba(237,236,243,.85) 48px 51px,
+    rgba(45,42,48,.9) 51px 65px,      rgba(237,236,243,.85) 65px 68px,
+    rgba(150,24,32,.9) 68px 82px,     rgba(237,236,243,.85) 82px 85px,
+    rgba(70,170,100,.9) 85px 99px,    rgba(237,236,243,.85) 99px 102px,
+    rgba(24,22,28,.95) 102px 116px,   rgba(237,236,243,.85) 116px 119px,
+    rgba(225,70,60,.9) 119px 133px,   rgba(237,236,243,.85) 133px 136px,
+    rgba(16,88,46,.9) 136px 150px,    rgba(237,236,243,.85) 150px 153px);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
