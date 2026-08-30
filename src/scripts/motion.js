@@ -15,8 +15,7 @@ export function startMotion({ reducedMotion, fine }) {
   onScrollNav();
 
   if (reducedMotion) {
-    // reveals: show everything (CSS also forces this; belt and suspenders)
-    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+    // content is visible by default; nothing to animate
     return;
   }
 
@@ -42,7 +41,9 @@ export function startMotion({ reducedMotion, fine }) {
     });
   });
 
-  // scroll reveals — batched, gentle rise + settle
+  // scroll reveals — gentle rise + settle. Elements are visible in the
+  // markup (no-JS safe); GSAP hides them here, then clears its inline
+  // styles on complete so CSS hover transitions (card tilt etc.) work.
   document.querySelectorAll('.reveal').forEach((el) => {
     gsap.fromTo(el,
       { opacity: 0, y: 34 },
@@ -50,10 +51,9 @@ export function startMotion({ reducedMotion, fine }) {
         opacity: 1, y: 0,
         duration: 1.15, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 86%', once: true },
-        onStart: () => el.classList.add('in'),
+        onComplete: () => gsap.set(el, { clearProps: 'opacity,transform' }),
       }
     );
-    el.style.transition = 'none'; // GSAP owns it; avoid double-easing
   });
 
   // section hairlines draw in

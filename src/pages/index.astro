@@ -7,6 +7,7 @@ import Experience from '../components/Experience.astro';
 import Work from '../components/Work.astro';
 import Contact from '../components/Contact.astro';
 import Overlays from '../components/Overlays.astro';
+import { contact } from '../data/site.js';
 ---
 <Base>
   <div class="page">
@@ -18,6 +19,11 @@ import Overlays from '../components/Overlays.astro';
       <Work />
       <Contact />
     </main>
+    <footer class="foot">
+      <div class="foot-line reveal">
+        <p class="copy">{contact.copyright}</p>
+      </div>
+    </footer>
   </div>
   <Overlays />
 </Base>

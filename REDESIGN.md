@@ -2,7 +2,23 @@
 
 > Living document for the portfolio redesign. Written so any agent (or human) can pick up
 > the project cold. Keep it updated as decisions land and phases complete.
-> Last updated: 2026-08-29.
+> Last updated: 2026-08-30.
+
+## Build status (branch `redesign`)
+
+Phases 1–2 of the build plan are DONE (Aug 30): Astro 5 + GSAP/ScrollTrigger + Lenis
+scaffold with all scenes built from real approved content, Journey atmosphere ported,
+project overlays (feb / pv / other) with `#/work/<id>` deep links, image pipeline via
+astro:assets (webp), old PDF URLs preserved under `public/projects/`, Pages deploy
+workflow written (inactive until the repo's Pages source is switched to GitHub Actions).
+Production build passes. Adversarial review pass run; awaiting Smit's visual approval.
+Nothing pushed to any remote yet.
+
+**Windows gotcha:** `C:\Users\smitm\Documents\GitHub` is a junction to
+`C:\Users\smitm\GitHub` (the real path). Run npm/vite/astro against the REAL path or
+Vite's fs allow-list misfires (dev-toolbar 403s). Git works from either. The dev server
+launch config ("astro" in `Smit resume/.claude/launch.json`, port 4321) already uses the
+real path. Dev toolbar is disabled in astro.config.mjs.
 
 ## Who / what this is
 

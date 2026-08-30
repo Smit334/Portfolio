@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import { hero } from '../data/site.js';
 
 // letter-stagger spans; spaces become fixed-width gaps
@@ -10,23 +11,43 @@ for (const ch of hero.name.toUpperCase()) {
 }
 ---
 <section class="hero" id="top">
-  <div class="mask over-m"><p class="over">{hero.over}</p></div>
-  <h1 class="name" aria-label={hero.name}>
-    <span aria-hidden="true">
-      {glyphs.map((g) =>
-        g.space
-          ? <span class="wsp"></span>
-          : <span class="l" style={`--i:${g.i}`}>{g.ch}</span>
-      )}
-    </span>
-  </h1>
-  <div class="tag">
-    <i class="rule rl"></i>
-    <p>{hero.tag}</p>
-    <i class="rule rr"></i>
-  </div>
-  <div class="mask lede-m">
-    <p class="lede">{hero.ledeBefore}<span class="shine">{hero.ledeShine}</span>{hero.ledeAfter}</p>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="mask over-m"><p class="over">{hero.over}</p></div>
+      <h1 class="name" aria-label={hero.name}>
+        <span aria-hidden="true">
+          {glyphs.map((g) =>
+            g.space
+              ? <span class="wsp"></span>
+              : <span class="l" style={`--i:${g.i}`}>{g.ch}</span>
+          )}
+        </span>
+      </h1>
+      <div class="tag">
+        <p>{hero.tag}</p>
+        <i class="rule rr"></i>
+      </div>
+      <div class="mask lede-m">
+        <p class="lede">{hero.ledeBefore}<span class="shine">{hero.ledeShine}</span>{hero.ledeAfter}</p>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <span class="media">
+        <span class="imwrap">
+          <Image
+            src={hero.portrait}
+            alt={hero.portraitAlt}
+            widths={[480, 760, 1100]}
+            sizes="(max-width: 900px) 86vw, 40vw"
+            format="webp"
+            quality={80}
+            loading="eager"
+            fetchpriority="high"
+          />
+          <span class="tint" aria-hidden="true"></span>
+        </span>
+      </span>
+    </div>
   </div>
   <div class="meta">
     <span>{hero.metaLeft}</span>

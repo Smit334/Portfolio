@@ -12,39 +12,39 @@ const pad = (n) => String(n).padStart(2, '0');
 
   <div class="media-grid reveal">
     {featured.map((f) => (
-      <button class="media" type="button" data-open-overlay={f.id} aria-haspopup="dialog">
+      <button class="media" type="button" data-open-overlay={f.id} aria-haspopup="dialog" aria-label={`${f.title} — open case study`}>
         <span class="imwrap">
-          <Image src={f.image} alt={f.imageAlt} width={980} format="webp" quality={78} />
+          <Image src={f.image} alt="" widths={[560, 980, 1400]} sizes="(max-width: 640px) 92vw, 46vw" format="webp" quality={78} />
           <span class="tint" aria-hidden="true"></span>
         </span>
-        <span class="cap"><h3>{f.title}</h3><span>{f.kicker}</span></span>
+        <span class="cap"><span class="cap-t">{f.title}</span><span class="cap-k">{f.kicker}</span></span>
       </button>
     ))}
   </div>
 
-  {cards.map((c, n) => {
-    const inner = (
-      <>
-        <span class="idx">{pad(n + 1)}</span>
-        <span>
-          <h3>{c.title}</h3>
-          <p class="desc">{c.desc}</p>
+  <div class="card-grid">
+    {cards.map((c, n) => {
+      const inner = (
+        <>
+          <span class="card-top">
+            <span class="idx">{pad(n + 1)}</span>
+            {(c.overlay || c.href) && <span class="cta"><span class="ar">&rarr;</span></span>}
+          </span>
+          <span class="ttl">{c.title}</span>
+          <span class="desc">{c.desc}</span>
           <span class="tags">
             {c.tags.map((t) => <span>{t}</span>)}
-            {c.nda && <span class="nda">Design Details Under NDA</span>}
+            {c.nda && <span class="nda">Details Under NDA</span>}
           </span>
-        </span>
-        {(c.overlay || c.href) && (
-          <span class="cta">{c.href ? 'View on GitHub' : 'Explore'} <span class="ar">&rarr;</span></span>
-        )}
-      </>
-    );
-    if (c.overlay) return (
-      <button class="card reveal" type="button" data-open-overlay={c.overlay} aria-haspopup="dialog">{inner}</button>
-    );
-    if (c.href) return (
-      <a class="card reveal" href={c.href} target="_blank" rel="noopener">{inner}</a>
-    );
-    return <div class="card reveal">{inner}</div>;
-  })}
+        </>
+      );
+      if (c.overlay) return (
+        <button class="card reveal" type="button" data-open-overlay={c.overlay} aria-haspopup="dialog" aria-label={`${c.title} — open details`}>{inner}</button>
+      );
+      if (c.href) return (
+        <a class="card reveal" href={c.href} target="_blank" rel="noopener" aria-label={`${c.title} — view on GitHub`}>{inner}</a>
+      );
+      return <div class="card reveal">{inner}</div>;
+    })}
+  </div>
 </section>

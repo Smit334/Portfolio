@@ -7,7 +7,7 @@ const entries = Object.entries(overlays);
 {entries.map(([id, ov]) => (
   <div class="ov-root" data-overlay={id} role="dialog" aria-modal="true" aria-label={ov.title}>
     <button class="ov-back" type="button" aria-label="Close panel" tabindex="-1"></button>
-    <div class="ov-panel">
+    <div class="ov-panel" data-lenis-prevent>
       <button class="ov-close" type="button">Close</button>
       <p class="ov-kicker">{ov.kicker}</p>
       <h2>{ov.title}</h2>
@@ -32,10 +32,10 @@ const entries = Object.entries(overlays);
           {ov.gallery.map((g) => (
             <span class={`media${g.wide ? ' wide' : ''}`}>
               <span class="imwrap">
-                <Image src={g.image} alt={g.alt} width={g.wide ? 1400 : 820} format="webp" quality={78} />
+                <Image src={g.image} alt={g.alt} width={Math.min(g.maxW ?? Infinity, g.wide ? 1400 : 820, g.image.width)} format="webp" quality={78} />
                 <span class="tint" aria-hidden="true"></span>
               </span>
-              {g.cap && <span class="cap"><h3>{g.cap}</h3></span>}
+              {g.cap && <span class="cap"><span class="cap-t">{g.cap}</span></span>}
             </span>
           ))}
         </div>

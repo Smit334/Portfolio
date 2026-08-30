@@ -3,7 +3,7 @@
 // FEB overlay copy is tense-updated from the old project page (he left the team
 // June 2025) — flagged for Smit's review before ship.
 
-import aboutPhoto from '../assets/photos/about.jpg';
+import portraitPhoto from '../assets/photos/portrait.jpg';
 import febSn2 from '../assets/photos/feb-sn2.jpg';
 import febSn3a from '../assets/photos/feb-sn3-a.jpg';
 import febSn3b from '../assets/photos/feb-sn3-b.jpg';
@@ -18,21 +18,24 @@ export const hero = {
   over: 'Portfolio — Twenty Twenty-Six',
   name: 'Smit Malde',
   tag: 'Electrical Design Engineer · Tesla Battery Electronics',
-  // Derived from the approved About paragraph; shine word = AI
-  ledeBefore: 'I design and validate battery management systems and high-voltage controllers at Tesla — applying ',
-  ledeShine: 'AI',
-  ledeAfter: ' across the hardware workflow, from first schematic to validated build.',
+  // Smit's original approved tagline, restored; shine on "sustainable future"
+  ledeBefore: 'Passionate about creating innovative solutions for a ',
+  ledeShine: 'sustainable future',
+  ledeAfter: ' — applying AI across the hardware workflow, from first schematic to validated build.',
+  portrait: portraitPhoto,
+  portraitAlt: 'Smit Malde sitting in the Formula Electric at Berkeley race car',
   metaLeft: "UC Berkeley — EECS '25",
   metaRight: 'Palo Alto, California',
 };
 
+// Rewritten for readability from the approved copy — same facts, tighter voice.
+// PENDING SMIT'S SIGN-OFF.
 export const about = {
-  photo: aboutPhoto,
-  photoAlt: 'Smit Malde',
   paragraphs: [
-    "I am an Electrical Design Engineer on Tesla's Battery Electronics team and a UC Berkeley Electrical Engineering and Computer Sciences graduate (May 2025), with a passion for hardware design, software development, and sustainability. I design and validate battery management system (BMS) boards and high voltage controllers, taking designs from schematic capture and layout through bring-up and validation. I am equally passionate about applying AI to hardware engineering — integrating AI into my design, debugging, and validation workflows, including AI-driven test automation that accelerates bench validation.",
-    'At UC Berkeley, I served as the Chief of Electrical Engineering and Computer Science for Formula Electric at Berkeley through June 2025, where I oversaw the low-voltage and high-voltage electronics, firmware, software, and the electrical and mechanical integration of our electric race car systems, leading a team of talented engineers and programmers. Before joining Tesla full-time, I interned at Tesla and Rivian, where I designed a modular, stackable cell simulator and a test automation suite for various electronic control units as well as various BMSs.',
-    'I am always eager to learn new technologies and tools, and to collaborate with diverse and dynamic teams. My goal is to help within the electric vehicle and renewable energy sector, contributing to the development of sustainable and efficient solutions for the future.',
+    "I'm Smit — an Electrical Design Engineer on Tesla's Battery Electronics team, where I design and validate battery management system boards and high-voltage controllers. I carry hardware the whole way: schematic capture, layout, bring-up, and validation on the bench.",
+    "I'm equally passionate about what AI can do for hardware engineering. It runs through my design, debugging, and validation workflows — including AI-driven test automation that accelerates bench validation.",
+    "Before Tesla, I studied Electrical Engineering and Computer Sciences at UC Berkeley (Class of 2025) and served as Chief of Electrical Engineering and Computer Science for Formula Electric at Berkeley — overseeing the low-voltage and high-voltage electronics, firmware, software, and vehicle integration of our electric race cars, and leading a team of talented engineers. Along the way I interned at Tesla and Rivian, designing BMS boards, cell simulators, and test automation systems.",
+    "My goal is to help build the sustainable, efficient energy systems the future runs on. If that's your world too — or you just want to talk hardware and AI — I'd love to connect.",
   ],
 };
 
@@ -181,14 +184,15 @@ export const overlays = {
     ],
     gallery: [
       { image: febArchitecture, alt: 'SN4 electrical system high-level diagram', cap: 'SN4 System Architecture', wide: true },
-      { image: febSn2, alt: 'SN2 race car', cap: 'SN2' },
-      { image: febSn3a, alt: 'SN3 race car', cap: 'SN3' },
-      { image: febSn3b, alt: 'SN3 race car', cap: 'SN3' },
+      { image: febSn2, alt: 'The SN2 race car on track', cap: 'SN2' },
+      { image: febSn3a, alt: 'The SN3 race car at the June 2024 competition', cap: 'SN3' },
+      { image: febSn3b, alt: 'A closer view of the SN3 race car', cap: 'SN3' },
     ],
     links: [
       { label: 'Team Website', href: 'https://ev.studentorg.berkeley.edu/' },
       { label: 'EECS Overview Deck', href: '/projects/FEB/High%20Level%20EECS%20Overview.pdf' },
       { label: 'Inverter & Motor Docs', href: 'https://elemental-hawk-04e.notion.site/SN2-RMS-Inverter-Documentation-5aa13ddd1dea40b8a2d1ffd78fd6838a' },
+      { label: 'Flyback Documentation', href: 'https://elemental-hawk-04e.notion.site/SN2-Flyback-Converter-095e4428098c45faab3466b8fb5d547c' },
       { label: 'Flyback Design Notes', href: 'https://elemental-hawk-04e.notion.site/Design-600V-flyback-converter-b3b28f530cfb4a2cbbb9fb3ce9b4cb16' },
     ],
   },
@@ -210,11 +214,11 @@ export const overlays = {
       },
     ],
     gallery: [
-      { image: pvBoardA, alt: 'PV buck converter PCB' },
-      { image: pvBoardB, alt: 'PV buck converter PCB detail' },
-      { image: pvBoardC, alt: 'PV buck converter PCB detail' },
-      { image: pvSimA, alt: 'Simulation screenshot', wide: true },
-      { image: pvSimB, alt: 'Layout screenshot', wide: true },
+      { image: pvBoardA, alt: 'The assembled PV buck converter PCB' },
+      { image: pvBoardB, alt: 'Top view of the PV buck converter board' },
+      { image: pvBoardC, alt: 'Detail of the PV buck converter power stage' },
+      { image: pvSimA, alt: 'PV buck converter design screenshot, 1 of 2', wide: true, maxW: 771 },
+      { image: pvSimB, alt: 'PV buck converter design screenshot, 2 of 2', wide: true, maxW: 838 },
     ],
     links: [
       { label: 'Design Manual', href: '/projects/PVBuck/DesignManualPVBUCK-SmitMalde.pdf' },
