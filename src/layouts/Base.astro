@@ -43,6 +43,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     import { startAtmosphere } from '../scripts/atmosphere.js';
     import { startMotion } from '../scripts/motion.js';
     import { startOverlays } from '../scripts/overlay.js';
+    import { startLightbox } from '../scripts/lightbox.js';
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -50,6 +51,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     startAtmosphere({ reducedMotion });
     startMotion({ reducedMotion, fine });
     startOverlays();
+    startLightbox();
   </script>
 </body>
 </html>

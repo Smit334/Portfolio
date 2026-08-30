@@ -30,13 +30,19 @@ const entries = Object.entries(overlays);
       {ov.gallery.length > 0 && (
         <div class="ov-gallery">
           {ov.gallery.map((g) => (
-            <span class={`media${g.wide ? ' wide' : ''}`}>
+            <button
+              class={`media${g.wide ? ' wide' : ''}`}
+              type="button"
+              data-lightbox={g.image.src}
+              data-lightbox-alt={g.alt}
+              aria-label={`View full size — ${g.alt}`}
+            >
               <span class="imwrap">
                 <Image src={g.image} alt={g.alt} width={Math.min(g.maxW ?? Infinity, g.wide ? 1400 : 820, g.image.width)} format="webp" quality={78} />
                 <span class="tint" aria-hidden="true"></span>
               </span>
               {g.cap && <span class="cap"><span class="cap-t">{g.cap}</span></span>}
-            </span>
+            </button>
           ))}
         </div>
       )}
@@ -50,3 +56,11 @@ const entries = Object.entries(overlays);
     </div>
   </div>
 ))}
+
+<div class="lb-root" role="dialog" aria-modal="true" aria-label="Image viewer" data-lenis-prevent>
+  <div class="lb-stage">
+    <img class="lb-img" alt="" draggable="false" />
+  </div>
+  <button class="lb-close" type="button">Close</button>
+  <p class="lb-hint" aria-hidden="true">Scroll to zoom · drag to pan · double-click to reset</p>
+</div>

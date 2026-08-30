@@ -17,8 +17,6 @@ import pvSimA from '../assets/photos/pv-sim-a.png';
 import pvSimB from '../assets/photos/pv-sim-b.png';
 
 export const hero = {
-  overSw: 'Karibu', // Swahili: welcome — serif-italic accent before the overline
-  over: 'Portfolio — Twenty Twenty-Six',
   name: 'Smit Malde',
   tag: 'Electrical Design Engineer · Tesla Battery Electronics',
   // Smit's original approved tagline, verbatim; shine on "sustainable future"
@@ -39,12 +37,11 @@ export const about = {
   // Roots vignette — Nairobi dusk, letterboxed under the copy
   rootsPhoto: nairobiPhoto,
   rootsAlt: 'Nairobi skyline at dusk, a giraffe silhouetted in the foreground',
-  rootsCap: 'home',
   rootsKicker: 'Nairobi, Kenya — 1°17′ S',
   paragraphs: [
     "I'm Smit — an Electrical Design Engineer on Tesla's Battery Electronics team, where I design and validate battery management system boards and high-voltage controllers. I carry hardware the whole way: schematic capture, layout, bring-up, and validation on the bench.",
     "I'm equally passionate about what AI can do for hardware engineering. It runs through my design, debugging, and validation workflows — including AI-driven test automation that accelerates bench validation.",
-    "Before Tesla, I studied Electrical Engineering and Computer Sciences at UC Berkeley (Class of 2025) and served as Chief of Electrical Engineering and Computer Science for Formula Electric at Berkeley — overseeing the low-voltage and high-voltage electronics, firmware, software, and vehicle integration of our electric race cars, and leading a team of talented engineers. Along the way I interned at Tesla and Rivian, designing BMS boards, cell simulators, and test automation systems.",
+    "I grew up in Nairobi, Kenya, before moving to the Bay Area to study Electrical Engineering and Computer Sciences at UC Berkeley (Class of 2025). At Berkeley, I served as Chief of Electrical Engineering and Computer Science for Formula Electric at Berkeley — overseeing the low-voltage and high-voltage electronics, firmware, software, and vehicle integration of our electric race cars, and leading a team of talented engineers. Along the way I interned at Tesla and Rivian, designing BMS boards, cell simulators, and test automation systems.",
     "My goal is to help build the sustainable, efficient energy systems the future runs on.",
   ],
 };
