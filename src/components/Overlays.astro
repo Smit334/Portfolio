@@ -1,0 +1,52 @@
+---
+import { Image } from 'astro:assets';
+import { overlays } from '../data/site.js';
+
+const entries = Object.entries(overlays);
+---
+{entries.map(([id, ov]) => (
+  <div class="ov-root" data-overlay={id} role="dialog" aria-modal="true" aria-label={ov.title}>
+    <button class="ov-back" type="button" aria-label="Close panel" tabindex="-1"></button>
+    <div class="ov-panel">
+      <button class="ov-close" type="button">Close</button>
+      <p class="ov-kicker">{ov.kicker}</p>
+      <h2>{ov.title}</h2>
+      {ov.intro.length > 0 && (
+        <div class="intro">
+          {ov.intro.map((p) => <p>{p}</p>)}
+        </div>
+      )}
+      {ov.designs.length > 0 && (
+        <div class="ov-designs">
+          {ov.designs.map((d) => (
+            <div class="ov-design">
+              <h3>{d.heading}</h3>
+              <p>{d.text}</p>
+              {d.href && <a class="repo" href={d.href} target="_blank" rel="noopener">View Repo &rarr;</a>}
+            </div>
+          ))}
+        </div>
+      )}
+      {ov.gallery.length > 0 && (
+        <div class="ov-gallery">
+          {ov.gallery.map((g) => (
+            <span class={`media${g.wide ? ' wide' : ''}`}>
+              <span class="imwrap">
+                <Image src={g.image} alt={g.alt} width={g.wide ? 1400 : 820} format="webp" quality={78} />
+                <span class="tint" aria-hidden="true"></span>
+              </span>
+              {g.cap && <span class="cap"><h3>{g.cap}</h3></span>}
+            </span>
+          ))}
+        </div>
+      )}
+      {ov.links.length > 0 && (
+        <div class="ov-links">
+          {ov.links.map((l) => (
+            <a href={l.href} target="_blank" rel="noopener">{l.label}</a>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+))}

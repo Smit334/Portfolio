@@ -1,0 +1,36 @@
+---
+import { hero } from '../data/site.js';
+
+// letter-stagger spans; spaces become fixed-width gaps
+const glyphs = [];
+let i = 0;
+for (const ch of hero.name.toUpperCase()) {
+  if (ch === ' ') glyphs.push({ space: true });
+  else glyphs.push({ ch, i: i++ });
+}
+---
+<section class="hero" id="top">
+  <div class="mask over-m"><p class="over">{hero.over}</p></div>
+  <h1 class="name" aria-label={hero.name}>
+    <span aria-hidden="true">
+      {glyphs.map((g) =>
+        g.space
+          ? <span class="wsp"></span>
+          : <span class="l" style={`--i:${g.i}`}>{g.ch}</span>
+      )}
+    </span>
+  </h1>
+  <div class="tag">
+    <i class="rule rl"></i>
+    <p>{hero.tag}</p>
+    <i class="rule rr"></i>
+  </div>
+  <div class="mask lede-m">
+    <p class="lede">{hero.ledeBefore}<span class="shine">{hero.ledeShine}</span>{hero.ledeAfter}</p>
+  </div>
+  <div class="meta">
+    <span>{hero.metaLeft}</span>
+    <span class="cue-l"><i></i></span>
+    <span class="m-r">{hero.metaRight}</span>
+  </div>
+</section>

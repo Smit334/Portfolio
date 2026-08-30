@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+const {
+  title = 'Smit Malde — Electrical Design Engineer',
+  description = "Smit Malde — Electrical Design Engineer on Tesla's Battery Electronics team. UC Berkeley EECS '25. Hardware design, validation, and AI-driven engineering workflows.",
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta name="theme-color" content="#08080d" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@200;300;400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <script is:inline>document.documentElement.classList.remove('no-js');</script>
+</head>
+<body>
+  <canvas id="silk" aria-hidden="true"></canvas>
+  <div class="veil" aria-hidden="true"></div>
+  <div id="grain" aria-hidden="true"></div>
+
+  <slot />
+
+  <script>
+    import { startAtmosphere } from '../scripts/atmosphere.js';
+    import { startMotion } from '../scripts/motion.js';
+    import { startOverlays } from '../scripts/overlay.js';
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    startAtmosphere({ reducedMotion });
+    startMotion({ reducedMotion, fine });
+    startOverlays();
+  </script>
+</body>
+</html>

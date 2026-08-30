@@ -1,0 +1,39 @@
+---
+import { contact } from '../data/site.js';
+---
+<section class="sec" id="contact">
+  <div class="sec-h reveal">
+    <h2>{contact.heading}</h2>
+    <span class="ln"></span>
+  </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <p class="c-note">{contact.intro}</p>
+      <div class="c-links">
+        <a class="c-link" href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a class="c-link" href={contact.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        <a class="c-link" href={contact.resume} target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+    <form class="form reveal" action={contact.formspree} method="POST">
+      <div class="field">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" type="text" name="name" placeholder="Your name" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="cf-email">Email</label>
+        <input id="cf-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="cf-msg">Message</label>
+        <textarea id="cf-msg" name="message" rows="3" placeholder="What would you like to build?"></textarea>
+      </div>
+      <button class="pill" type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+<footer class="foot">
+  <div class="foot-line reveal">
+    <p class="copy">{contact.copyright}</p>
+  </div>
+</footer>

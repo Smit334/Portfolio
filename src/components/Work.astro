@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets';
+import { featured, cards } from '../data/site.js';
+
+const pad = (n) => String(n).padStart(2, '0');
+---
+<section class="sec" id="work">
+  <div class="sec-h reveal">
+    <h2>Selected Work</h2>
+    <span class="ln"></span>
+  </div>
+
+  <div class="media-grid reveal">
+    {featured.map((f) => (
+      <button class="media" type="button" data-open-overlay={f.id} aria-haspopup="dialog">
+        <span class="imwrap">
+          <Image src={f.image} alt={f.imageAlt} width={980} format="webp" quality={78} />
+          <span class="tint" aria-hidden="true"></span>
+        </span>
+        <span class="cap"><h3>{f.title}</h3><span>{f.kicker}</span></span>
+      </button>
+    ))}
+  </div>
+
+  {cards.map((c, n) => {
+    const inner = (
+      <>
+        <span class="idx">{pad(n + 1)}</span>
+        <span>
+          <h3>{c.title}</h3>
+          <p class="desc">{c.desc}</p>
+          <span class="tags">
+            {c.tags.map((t) => <span>{t}</span>)}
+            {c.nda && <span class="nda">Design Details Under NDA</span>}
+          </span>
+        </span>
+        {(c.overlay || c.href) && (
+          <span class="cta">{c.href ? 'View on GitHub' : 'Explore'} <span class="ar">&rarr;</span></span>
+        )}
+      </>
+    );
+    if (c.overlay) return (
+      <button class="card reveal" type="button" data-open-overlay={c.overlay} aria-haspopup="dialog">{inner}</button>
+    );
+    if (c.href) return (
+      <a class="card reveal" href={c.href} target="_blank" rel="noopener">{inner}</a>
+    );
+    return <div class="card reveal">{inner}</div>;
+  })}
+</section>
