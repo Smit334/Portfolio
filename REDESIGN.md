@@ -98,10 +98,9 @@ Everything the build needs is extractable from that file:
 Smit (Aug 30): "I will provide more photos as i see fit, but you need to remind me for
 what things photos are needed." Current needs, roughly by priority:
 
-1. **SN4 completed car** — FEB overlay gallery + card thumb still show SN2/SN3 only;
-   SN4 was completed in the 2024-25 season and should lead. (Also: a final SN4 system
-   diagram if the repo's copy isn't the latest.)
-2. **DART drone** — card has no imagery.
+1. ~~**SN4 completed car**~~ — DONE Sep 1 (track + tilt-test shots; FEB card thumb + gallery lead).
+   Still optional: a final SN4 system diagram if the repo's copy isn't the latest.
+2. ~~**DART drone**~~ — DONE Sep 1 (4 photos; DART now has its own overlay panel).
 3. **Custom 16nm chip bring-up board** — if shareable.
 4. **RISC-V CPU ASIC** — layout render / die plot, if shareable.
 5. **SpeakEasy** — a UI screenshot.
@@ -110,6 +109,8 @@ what things photos are needed." Current needs, roughly by priority:
 8. **Hi-res Nairobi skyline/giraffe photo** — the repo copy (`images/unnamed.jpg`) is only
    512×512; it powers the About "roots" vignette and limits how large it can go. The
    original export would also unlock the shelved "closing dusk" footer band concept.
+
+Drops go in `images/New Photos/<project>/`; wired copies get clean names in `src/assets/photos/`.
 
 When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/data/site.js`
 (card `thumb` and/or overlay `gallery`), keep alt text specific. Strike items off this list.

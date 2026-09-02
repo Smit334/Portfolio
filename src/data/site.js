@@ -10,10 +10,15 @@ import logoTesla from '../assets/logos/tesla.png';
 import logoFeb from '../assets/logos/formula-electric.png';
 import logoRivian from '../assets/logos/rivian.png';
 import logoIdol from '../assets/logos/idol.png';
-import febSn2 from '../assets/photos/feb-sn2.jpg';
 import febSn3a from '../assets/photos/feb-sn3-a.jpg';
 import febSn3b from '../assets/photos/feb-sn3-b.jpg';
 import febArchitecture from '../assets/photos/feb-architecture.png';
+import febSn4Track from '../assets/photos/feb-sn4-track.jpg';
+import febSn4Tilt from '../assets/photos/feb-sn4-tilt.jpg';
+import dartFlight from '../assets/photos/dart-flight.jpg';
+import dartDrive from '../assets/photos/dart-drive.jpg';
+import dartElectronics from '../assets/photos/dart-electronics.jpg';
+import dartRolling from '../assets/photos/dart-rolling.jpg';
 import pvBoardA from '../assets/photos/pv-board-a.jpg';
 import pvBoardB from '../assets/photos/pv-board-b.jpg';
 import pvBoardC from '../assets/photos/pv-board-c.jpg';
@@ -112,6 +117,8 @@ export const cards = [
     title: 'DART',
     desc: 'Designed a four-wheel drone with EVTOL capabilities by utilizing an in-wheel toroidal propeller design, eliminating the need for additional propellers. Designed a custom flight controller PCB with a suite of distance sensors to enable intelligent object detection and path planning.',
     tags: ['EVTOL', 'Flight Controller', 'Path Planning'],
+    overlay: 'dart',
+    thumb: dartFlight,
   },
   {
     title: '3-Stage Pipelined RISC-V CPU ASIC',
@@ -130,7 +137,7 @@ export const cards = [
     desc: 'Designed and developed multiple systems and PCBs, authored firmware and system diagrams, validated and brought up PCBs for integration into various vehicle functions.',
     tags: ['588V Systems', 'PCB Design', 'Firmware'],
     overlay: 'feb',
-    thumb: febSn2,
+    thumb: febSn4Track,
   },
   {
     title: '24-Channel BMS',
@@ -196,10 +203,11 @@ export const overlays = {
         text: 'The DCU (Data Control Unit) logs everything on the CAN bus to an on-board SD card and transmits all messages through an XBee wireless transceiver module for live telemetry, with a supercapacitor UPS to avoid corruption of SD cards. The Dash acts as the I/O for the driver — relaying information from the CAN bus to the screen, and driver input onto the CAN bus.',
       },
     ],
-    galleryCols: 3,
+    galleryCols: 2,
     gallery: [
       { image: febArchitecture, alt: 'SN4 electrical system high-level diagram', cap: 'SN4 System Architecture', wide: true, natural: true },
-      { image: febSn2, alt: 'The SN2 race car on track', cap: 'SN2' },
+      { image: febSn4Track, alt: 'SN4, car 257, driving through the cones on track at competition', cap: 'SN4' },
+      { image: febSn4Tilt, alt: 'SN4 on the tilt-table test at competition, driver seated', cap: 'SN4 — Tilt Test' },
       { image: febSn3a, alt: 'The SN3 race car at the June 2024 competition', cap: 'SN3' },
       { image: febSn3b, alt: 'A closer view of the SN3 race car', cap: 'SN3' },
     ],
@@ -240,6 +248,23 @@ export const overlays = {
       { label: 'Schematics', href: '/projects/PVBuck/Schematics_PV_Buck_Converter_113B.pdf' },
       { label: 'Layout Design Deck', href: '/projects/PVBuck/EE%20113B%20PV%20BUCK%20CONVERTER.pdf' },
     ],
+  },
+  dart: {
+    title: 'DART',
+    kicker: 'Four-Wheel EVTOL Drone · Custom Flight Controller',
+    intro: [
+      'Designed a four-wheel drone with EVTOL capabilities by utilizing an in-wheel toroidal propeller design, eliminating the need for additional propellers — the wheels drive on the ground, then rotate flat to fly.',
+      'Designed a custom flight controller PCB with a suite of distance sensors to enable intelligent object detection and path planning.',
+    ],
+    designs: [],
+    galleryCols: 3,
+    gallery: [
+      { image: dartFlight, alt: 'DART in flight configuration, its four wheels rotated flat with the in-wheel propellers facing up', cap: 'Flight Mode', wide: true },
+      { image: dartDrive, alt: 'DART standing on its four wheels in drive mode', cap: 'Drive Mode' },
+      { image: dartRolling, alt: 'DART rolling across the floor', cap: 'Rolling' },
+      { image: dartElectronics, alt: 'Close-up of the custom flight controller board with ultrasonic distance sensors', cap: 'Flight Controller' },
+    ],
+    links: [],
   },
   other: {
     title: 'Other Projects',
