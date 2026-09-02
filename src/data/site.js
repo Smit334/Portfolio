@@ -303,7 +303,7 @@ export const overlays = {
 
 export const contact = {
   heading: 'Get in Touch',
-  intro: "If you're interested in collaborating or learning more about my work, feel free to reach out.",
+  intro: "If you're interested in collaborating or learning more, feel free to reach out.",
   email: 'smit334@berkeley.edu',
   linkedin: 'https://www.linkedin.com/in/smit-malde/',
   formspree: 'https://formspree.io/f/xgvovnll',

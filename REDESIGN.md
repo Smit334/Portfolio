@@ -137,6 +137,17 @@ When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/
 4. Local preview → **Smit approves** → GitHub Action for Astro build → merge/switch Pages
    to the new build → verify live on smitmalde.xyz.
 
+## Seeing the jetski without a visible browser (verification technique)
+
+The jetski engine (`src/scripts/jetski.js`) exposes `window.__silkJetski` = `{ S, step, drawWater,
+drawCraft, setPointer, press, release, water, craft }`. In a headless/hidden tab where rAF is
+frozen, drive it by hand: `setPointer(x,y)` along a path, `step(1/60, now)` per frame, then
+`drawWater(now)`/`drawCraft()`, composite `water` + `craft` over the ground onto an offscreen
+canvas, `toDataURL`, and POST it to a tiny local receiver (see the session scratchpad
+`framesink.py` pattern: python http.server saving base64 to `frames/`). Then Read the JPEG.
+`?motion=force` on the dev URL guarantees the engine starts regardless of OS settings.
+Iterate: v1→v4 in one session went from a "tunnel skeleton" wake to a real wash ribbon.
+
 ## Working conventions (important)
 
 - **Nothing ships without Smit's explicit approval.** Preview first, always. He gives fast,
