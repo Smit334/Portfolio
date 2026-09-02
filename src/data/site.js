@@ -109,21 +109,11 @@ export const education = {
 // live in the overlay panels).
 export const cards = [
   {
-    title: 'Custom 16nm Chip Bring-Up',
-    desc: 'Designed a PCB to bring up and boot Linux on a custom 16nm chip developed at UC Berkeley and taped out by Intel. The PCB includes comprehensive peripheral and driver support to enable seamless Linux integration and operation on the chip.',
-    tags: ['PCB Design', 'Linux Bring-Up', '16nm Silicon'],
-  },
-  {
-    title: 'DART',
-    desc: 'Designed a four-wheel drone with EVTOL capabilities by utilizing an in-wheel toroidal propeller design, eliminating the need for additional propellers. Designed a custom flight controller PCB with a suite of distance sensors to enable intelligent object detection and path planning.',
-    tags: ['EVTOL', 'Flight Controller', 'Path Planning'],
-    overlay: 'dart',
-    thumb: dartFlight,
-  },
-  {
-    title: '3-Stage Pipelined RISC-V CPU ASIC',
-    desc: 'Developed a 3-stage pipelined RISC-V CPU with a custom cache system using Verilog and the Skywater 130nm process for digital ASIC design.',
-    tags: ['RISC-V', 'Verilog', 'Skywater 130nm'],
+    title: 'Formula Electric at Berkeley',
+    desc: 'Designed and developed multiple systems and PCBs, authored firmware and system diagrams, validated and brought up PCBs for integration into various vehicle functions.',
+    tags: ['588V Systems', 'PCB Design', 'Firmware'],
+    overlay: 'feb',
+    thumb: febSn4Track,
   },
   {
     title: 'PV–12V 100W Buck Converter',
@@ -133,11 +123,16 @@ export const cards = [
     thumb: pvBoardA,
   },
   {
-    title: 'Formula Electric at Berkeley',
-    desc: 'Designed and developed multiple systems and PCBs, authored firmware and system diagrams, validated and brought up PCBs for integration into various vehicle functions.',
-    tags: ['588V Systems', 'PCB Design', 'Firmware'],
-    overlay: 'feb',
-    thumb: febSn4Track,
+    title: 'DART',
+    desc: 'Designed a four-wheel drone with EVTOL capabilities by utilizing an in-wheel toroidal propeller design, eliminating the need for additional propellers. Designed a custom flight controller PCB with a suite of distance sensors to enable intelligent object detection and path planning.',
+    tags: ['EVTOL', 'Flight Controller', 'Path Planning'],
+    overlay: 'dart',
+    thumb: dartFlight,
+  },
+  {
+    title: 'Custom 16nm Chip Bring-Up',
+    desc: 'Designed a PCB to bring up and boot Linux on a custom 16nm chip developed at UC Berkeley and taped out by Intel. The PCB includes comprehensive peripheral and driver support to enable seamless Linux integration and operation on the chip.',
+    tags: ['PCB Design', 'Linux Bring-Up', '16nm Silicon'],
   },
   {
     title: '24-Channel BMS',
@@ -146,10 +141,10 @@ export const cards = [
     nda: true,
   },
   {
-    title: 'Thermistor Reliability Testing Board',
-    desc: 'Developed a PCB for thermistor characterization and reliability testing using advanced ADI BMS ASICs during my Tesla internship. Designed to collect high precision data from 41 thermistors using a 16 Channel ADBMS ASIC.',
-    tags: ['Reliability Testing', 'ADBMS', 'Precision Sensing'],
-    nda: true,
+    title: 'SpeakEasy — AI Language Companion',
+    desc: "Designed an AI-powered language tool designed to help users localize their own voice into other languages. SpeakEasy enables natural-sounding translations and assists with language learning by replicating the user's unique intonation.",
+    tags: ['AI', 'Voice Localization'],
+    href: 'https://github.com/Boomaa23/speak-easy',
   },
   {
     title: 'Cell Simulator',
@@ -158,10 +153,15 @@ export const cards = [
     nda: true,
   },
   {
-    title: 'SpeakEasy — AI Language Companion',
-    desc: "Designed an AI-powered language tool designed to help users localize their own voice into other languages. SpeakEasy enables natural-sounding translations and assists with language learning by replicating the user's unique intonation.",
-    tags: ['AI', 'Voice Localization'],
-    href: 'https://github.com/Boomaa23/speak-easy',
+    title: '3-Stage Pipelined RISC-V CPU ASIC',
+    desc: 'Developed a 3-stage pipelined RISC-V CPU with a custom cache system using Verilog and the Skywater 130nm process for digital ASIC design.',
+    tags: ['RISC-V', 'Verilog', 'Skywater 130nm'],
+  },
+  {
+    title: 'Thermistor Reliability Testing Board',
+    desc: 'Developed a PCB for thermistor characterization and reliability testing using advanced ADI BMS ASICs during my Tesla internship. Designed to collect high precision data from 41 thermistors using a 16 Channel ADBMS ASIC.',
+    tags: ['Reliability Testing', 'ADBMS', 'Precision Sensing'],
+    nda: true,
   },
   {
     title: 'SIXT33N',

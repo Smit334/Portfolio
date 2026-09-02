@@ -4,13 +4,8 @@ import { cards } from '../data/site.js';
 
 const pad = (n) => String(n).padStart(2, '0');
 
-// Order: cards with photos first, then other clickable cards (panel or
-// link), then reference-only cards — stable within each group.
-const rank = (c) => (c.thumb ? 0 : (c.overlay || c.href) ? 1 : 2);
-const ordered = cards
-  .map((c, i) => ({ c, i }))
-  .sort((a, b) => rank(a.c) - rank(b.c) || a.i - b.i)
-  .map((x) => x.c);
+// Card order is hand-curated by Smit: the order of `cards` in site.js is the order.
+const ordered = cards;
 ---
 <section class="sec" id="work">
   <div class="sec-h reveal">
