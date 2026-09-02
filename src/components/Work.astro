@@ -3,6 +3,14 @@ import { Image } from 'astro:assets';
 import { cards } from '../data/site.js';
 
 const pad = (n) => String(n).padStart(2, '0');
+
+// Order: cards with photos first, then other clickable cards (panel or
+// link), then reference-only cards — stable within each group.
+const rank = (c) => (c.thumb ? 0 : (c.overlay || c.href) ? 1 : 2);
+const ordered = cards
+  .map((c, i) => ({ c, i }))
+  .sort((a, b) => rank(a.c) - rank(b.c) || a.i - b.i)
+  .map((x) => x.c);
 ---
 <section class="sec" id="work">
   <div class="sec-h reveal">
@@ -11,7 +19,7 @@ const pad = (n) => String(n).padStart(2, '0');
   </div>
 
   <div class="card-grid">
-    {cards.map((c, n) => {
+    {ordered.map((c, n) => {
       const inner = (
         <>
           <span class="card-top">
