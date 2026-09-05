@@ -4,6 +4,18 @@
 > the project cold. Keep it updated as decisions land and phases complete.
 > Last updated: 2026-09-04.
 
+## Cursor refinement — local preview, not published
+
+- Branch: `cursor-refinement`, based on launched `main`.
+- Smit approved tighter tracking, stable steering/banking, a refined hull, and lighter curved water effects.
+- Position now follows the actual click point; a critically damped angular response supplies weight without pointer lag. Wake is distance-sampled, so refresh rate does not multiply particles. Old wake disperses after stopping.
+- Rendering uses a small 80px craft canvas and cached hull/foam textures; the water backing store has a pixel budget. Card bounds are invalidated by layout/scroll events instead of measured every frame. The boat loop sleeps after water settles.
+- Native cursor returns for input fields, image zoom/pan, and tab exit. Mouse-only and session Reduce Motion behavior are preserved.
+- Regression suite: `npm test` (17 tests, including independent pointer/display rates, hybrid mouse/touch events, and photo-viewer handoff). Visual/performance fixture: run `python -m http.server 4323 --bind 127.0.0.1` from this repo, then open `/tests/cursor-lab.html`. This test fixture is NOT in Astro's production output.
+- In-app browser isolated renderer sample: 865 frames over 6 seconds; median JS/canvas submission 0.4ms, p95 0.7ms. This is not whole-site FPS or GPU timing, and is machine-specific.
+- **Nairobi image remains unchanged.** Smit rejected the proposed stock photo and will supply his own. Do not source or substitute another image.
+- Preview and approval are required before merging/pushing these refinements to `main`.
+
 ## Launch checkpoint — September 4
 
 - Smit requested launch. `redesign` was fast-forwarded into `main` at `1af7f26` and pushed.
@@ -145,16 +157,16 @@ When photos arrive: clean-name copies into `src/assets/photos/`, wire into `src/
 4. Local preview → **Smit approves** → GitHub Action for Astro build → merge/switch Pages
    to the new build → verify live on smitmalde.xyz.
 
-## Seeing the jetski without a visible browser (verification technique)
+## Historical jetski v2 verification technique (superseded in cursor-refinement)
 
-The jetski engine (`src/scripts/jetski.js`) exposes `window.__silkJetski` = `{ S, step, drawWater,
+The launched v2 engine (`src/scripts/jetski.js`) exposed `window.__silkJetski` = `{ S, step, drawWater,
 drawCraft, setPointer, press, release, water, craft }`. In a headless/hidden tab where rAF is
 frozen, drive it by hand: `setPointer(x,y)` along a path, `step(1/60, now)` per frame, then
 `drawWater(now)`/`drawCraft()`, composite `water` + `craft` over the ground onto an offscreen
 canvas, `toDataURL`, and POST it to a tiny local receiver (see the session scratchpad
 `framesink.py` pattern: python http.server saving base64 to `frames/`). Then Read the JPEG.
 `?motion=force` on the dev URL guarantees the engine starts regardless of OS settings.
-Iterate: v1→v4 in one session went from a "tunnel skeleton" wake to a real wash ribbon.
+The refinement removes that production window API. Use the deterministic Node tests and the local-only cursor lab instead.
 
 ## Working conventions (important)
 

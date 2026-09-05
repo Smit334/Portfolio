@@ -1,0 +1,63 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cursor motion lab — local only</title>
+<style>
+  *{box-sizing:border-box} body{margin:0;background:#092932;color:#e8f0f2;font:15px system-ui}
+  main{max-width:1100px;margin:40px auto;padding:0 24px} h1{font-weight:400}
+  canvas{width:100%;border:1px solid #476870;border-radius:16px;background:radial-gradient(ellipse at 15% 20%,#145f5e,transparent 65%),linear-gradient(140deg,#102c32,#172f4b)}
+  button{padding:12px 18px;background:#c5e4df;border:0;border-radius:24px;color:#11282e;cursor:pointer;margin:0 10px 15px 0}
+  p,output{color:#b4ccd0} output{display:block;white-space:pre-wrap;font:13px ui-monospace,monospace;line-height:1.7}
+</style>
+<main>
+  <h1>Boat / water motion study</h1>
+  <p>Actual production simulation and renderer. No production route is added.</p>
+  <button id="still">Show turn + wake</button><button id="play">Replay motion / measure</button>
+  <canvas id="scene" width="1040" height="480"></canvas>
+  <output id="report">Ready</output>
+</main>
+<script type="module">
+  import { createCraftState, pointCraft, advanceCraft } from '../src/scripts/jetski-physics.js';
+  import { createBoatSprites, drawBoat, drawWake } from '../src/scripts/jetski-render.js';
+  const cv=document.querySelector('#scene'), c=cv.getContext('2d');
+  const sprites=createBoatSprites('110,230,180',2);
+  const report=document.querySelector('#report');
+  let frame;
+  const path=t=>[510+300*Math.sin(t*1.6),235+125*Math.sin(t*3.2)];
+  function render(s){
+    c.clearRect(0,0,1040,480);
+    drawWake(c,s,sprites);
+    c.save();c.translate(s.px-40,s.py-40);drawBoat(c,s,sprites);c.restore();
+    // 3x detail crop uses the same sprite, not a separate illustration.
+    c.fillStyle='rgba(5,18,29,.6)';c.fillRect(820,18,200,180);
+    c.save();c.translate(920,88);c.scale(3,3);c.translate(-40,-40);drawBoat(c,s,sprites);c.restore();
+    c.fillStyle='#c8dcde';c.font='12px system-ui';c.fillText('Hull detail · 3×',842,175);
+  }
+  function still(){
+    cancelAnimationFrame(frame);
+    const s=createCraftState();pointCraft(s,...path(0));
+    for(let i=1;i<=144;i++){pointCraft(s,...path(i/60));advanceCraft(s,1/60)}
+    render(s);report.textContent=`Paused turn • ${s.trail.length} wake samples • ${s.spray.length} spray particles`;
+  }
+  document.querySelector('#still').onclick=still;
+  document.querySelector('#play').onclick=()=>{
+    cancelAnimationFrame(frame);
+    const s=createCraftState();pointCraft(s,...path(0));
+    let start,last;const cpu=[],intervals=[];
+    function loop(now){
+      if(start===undefined)start=last=now;
+      const dt=(now-last)/1000||1/60;last=now;
+      const elapsed=(now-start)/1000;
+      const before=performance.now();
+      pointCraft(s,...path(elapsed));advanceCraft(s,dt);render(s);
+      cpu.push(performance.now()-before);intervals.push(dt*1000);
+      if(elapsed<6)frame=requestAnimationFrame(loop);
+      else{
+        cpu.sort((a,b)=>a-b);intervals.sort((a,b)=>a-b);
+        report.textContent=`${cpu.length} frames measured\nMedian JS + canvas submission: ${cpu[Math.floor(cpu.length*.5)].toFixed(2)}ms\np95 JS + canvas submission: ${cpu[Math.floor(cpu.length*.95)].toFixed(2)}ms\nMedian frame interval: ${intervals[Math.floor(intervals.length*.5)].toFixed(2)}ms\nThis isolates boat/water cost, not whole-site or GPU frame time.`;
+      }
+    }
+    frame=requestAnimationFrame(loop);
+  };
+  still();
+</script>
