@@ -4,9 +4,9 @@
 > the project cold. Keep it updated as decisions land and phases complete.
 > Last updated: 2026-09-04.
 
-## Cursor refinement — local preview, not published
+## Cursor refinement — publication approved September 4
 
-- Branch: `cursor-refinement`, based on launched `main`.
+- Implemented on `cursor-refinement` at `59742ca`, based on launched `main`.
 - Smit approved tighter tracking, stable steering/banking, a refined hull, and lighter curved water effects.
 - Position now follows the actual click point; a critically damped angular response supplies weight without pointer lag. Wake is distance-sampled, so refresh rate does not multiply particles. Old wake disperses after stopping.
 - Rendering uses a small 80px craft canvas and cached hull/foam textures; the water backing store has a pixel budget. Card bounds are invalidated by layout/scroll events instead of measured every frame. The boat loop sleeps after water settles.
@@ -14,7 +14,7 @@
 - Regression suite: `npm test` (17 tests, including independent pointer/display rates, hybrid mouse/touch events, and photo-viewer handoff). Visual/performance fixture: run `python -m http.server 4323 --bind 127.0.0.1` from this repo, then open `/tests/cursor-lab.html`. This test fixture is NOT in Astro's production output.
 - In-app browser isolated renderer sample: 865 frames over 6 seconds; median JS/canvas submission 0.4ms, p95 0.7ms. This is not whole-site FPS or GPU timing, and is machine-specific.
 - **Nairobi image remains unchanged.** Smit rejected the proposed stock photo and will supply his own. Do not source or substitute another image.
-- Preview and approval are required before merging/pushing these refinements to `main`.
+- Smit approved publishing the cursor refinement on September 4. Release through `main` and the existing GitHub Pages Action; Nairobi replacement remains deferred until he supplies the image.
 
 ## Launch checkpoint — September 4
 
