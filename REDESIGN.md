@@ -2,7 +2,16 @@
 
 > Living document for the portfolio redesign. Written so any agent (or human) can pick up
 > the project cold. Keep it updated as decisions land and phases complete.
-> Last updated: 2026-08-30.
+> Last updated: 2026-09-04.
+
+## Launch checkpoint — September 4
+
+- Smit requested launch. `redesign` was fast-forwarded into `main` at `1af7f26` and pushed.
+- GitHub Pages source changed from legacy branch publishing to GitHub Actions; custom domain and HTTPS preserved.
+- Fresh production build passed. Browser smoke checks passed for the FEB panel, full-size image viewer, and 390px layout (no horizontal overflow or browser errors).
+- Remaining photos below are optional post-launch improvements; FEB/SN4 and DART are already integrated.
+- Production source is now `src/` plus `public/`, not the historical root `index.html`. Future changes should branch from updated `main` and receive approval before publishing.
+- Real-phone testing and a contact-form delivery test remain useful follow-ups; no test message was sent during launch checks.
 
 ## Build status (branch `redesign`)
 
@@ -13,9 +22,8 @@ Kenyan accents (flag-band section dividers, Nairobi roots vignette, Asante foote
 ::selection), jetski cursor with wake physics (mouse-only), motion ON for every visit
 with session-only "Reduce Motion" toggle (bottom right), experience org logos, mobile
 verified at 375px (no h-scroll, jetski off on touch). Multiple Smit review rounds applied.
-**Pushed to `origin/redesign` (Aug 30, Smit's go).** Live site on `main` untouched.
-Remaining before launch: Smit's photo drops (see wishlist), final approval → merge +
-switch Pages source to GitHub Actions.
+**Merged and pushed to `main` September 4, on Smit's go.** Pages now uses GitHub Actions.
+Remaining polish: optional photo drops (see wishlist), real-device checks, and contact-form delivery verification.
 
 **Windows gotcha:** `C:\Users\smitm\Documents\GitHub` is a junction to
 `C:\Users\smitm\GitHub` (the real path). Run npm/vite/astro against the REAL path or
@@ -44,8 +52,8 @@ After three rounds of design exploration (12 live animated concept demos), Smit 
 
 - **Silk** = dark luxe atmosphere: a slow-drifting canvas gradient mesh behind near-black,
   refined light-weight typography, content on faint glass. Sleek, elegant, professional.
-- **Journey** = scroll position blends the atmosphere from **Glacier (ice blue)** at the top
-  of the page to **Nordlys (aurora green)** at the bottom. The site is a journey through light.
+- **Journey** = scroll position blends the atmosphere from **Nordlys (aurora green)** at the top
+  of the page to **Glacier (ice blue)** at the bottom (Smit's final direction).
 
 Taste constraints learned the hard way (a full round of 8 EE-themed directions was rejected):
 - **No engineering visual metaphors** (no PCB/oscilloscope/terminal/thermal/battery imagery).
